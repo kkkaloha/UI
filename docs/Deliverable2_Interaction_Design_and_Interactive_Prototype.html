@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>COMP7505 — Deliverable 2</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+    body { max-width: 880px; margin: 2rem auto; padding: 0 1.25rem 3rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6; color: #1a1a1a; }
+    h1 { font-size: 1.75rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; }
+    h2 { font-size: 1.35rem; margin-top: 2rem; }
+    h3 { font-size: 1.1rem; margin-top: 1.25rem; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9rem; margin: 1rem 0; }
+    th, td { border: 1px solid #e5e7eb; padding: 0.5rem 0.65rem; text-align: left; }
+    th { background: #f9fafb; }
+    img { max-width: 100%; height: auto; display: block; margin: 1rem auto; border: 1px solid #e5e7eb; border-radius: 6px; }
+    code { background: #f3f4f6; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+    hr { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+    blockquote { margin: 0; padding-left: 1rem; border-left: 3px solid #2563eb; color: #4b5563; }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">COMP7505 — Deliverable 2</h1>
+</header>
+<h1
+id="deliverable-2-interaction-design-solution-and-interactive-prototype">Deliverable
+2 — Interaction Design Solution and Interactive Prototype</h1>
+<p><strong>COMP7505 User Interface Design and Development — Group
+Project</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Product</td>
+<td>AI Interview Copilot (InterviewAI)</td>
+</tr>
+<tr>
+<td>Track</td>
+<td>Track A — Smart Adaptive Interfaces</td>
+</tr>
+<tr>
+<td>Document version</td>
+<td>1.0 (submission draft)</td>
+</tr>
+<tr>
+<td>Prototype artefact</td>
+<td>Single-page HTML prototype (interactive)</td>
+</tr>
+</tbody>
+</table>
+<p>This chapter responds to <strong>§II, Deliverable 2</strong> of the
+<em>COMP7505 Group Project Description</em>: (1) <strong>Interaction
+Design Specification</strong>, (2) <strong>Full Workflow of Core
+Tasks</strong>, and (3) <strong>Interactive Prototype</strong>. The same
+chapter supports the grading module <strong>“Interaction Design &amp;
+Prototype Quality”</strong> (<strong>§V</strong>).</p>
+<p><strong>Everything below is grounded in our team’s Deliverable 1
+(D1).</strong> D1 established <em>who</em> we design for, <em>what</em>
+end-to-end tasks must succeed, and <em>what</em> is out of scope. We do
+<strong>not</strong> introduce new user goals here; we <strong>specify
+interaction structure, flows, and a prototype</strong> that
+<strong>realise</strong> those D1 commitments. Naming of journeys
+(<strong>Practice</strong> vs <strong>Review</strong>), emphasis on
+<strong>trustworthy and inspectable AI behaviour</strong>, and
+<strong>explicit limits</strong> on automation all follow from D1—not
+from generic “AI app” patterns.</p>
+<hr />
+<h2 id="introduction">1. Introduction</h2>
+<p>The course allows functions to be <strong>simulated</strong> rather
+than fully implemented (<strong>§I</strong>). Our team therefore
+delivers a <strong>single-file HTML prototype</strong> with three
+tabs—<strong>Design Spec</strong>, <strong>Flow Diagrams</strong>, and
+<strong>Prototype</strong>—linking specification, diagrams, and a
+click-through demo in one place. Methodologically, we relate the
+information structure to <strong>card sorting</strong> and an explicit
+information framework (<em>Workshop Handout Day 2</em>).</p>
+<p>The chapter is organised to mirror the three mandatory components of
+Deliverable 2, then documents <strong>Track A</strong> minimum interface
+requirements (<strong>§III</strong>), and closes with a consolidated
+<strong>list of figures</strong>. The figures throughout this chapter
+are <strong>schematic diagrams</strong> aligned with §2–§4; they
+summarise the same content as the embedded specification and flow views
+in the prototype.</p>
+<h3
+id="from-deliverable-1-to-this-chapter-why-we-designed-it-this-way">1.1
+From Deliverable 1 to this chapter — why we designed it this way</h3>
+<p>Deliverable 1 combined <strong>pre-project user research</strong> (a
+short questionnaire with target users) with a <strong>primary
+persona</strong>, <strong>core user task</strong> definition, and
+<strong>project scope &amp; boundaries</strong>. The following table
+states how those D1 outputs <strong>directly motivate</strong> the
+design choices in §2–§5.</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 44%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>D1 input</th>
+<th>User or research insight (summary)</th>
+<th>Design response in this deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Questionnaire &amp; interviews</td>
+<td>Candidates worry whether <strong>AI feedback is reliable</strong>,
+find feedback <strong>too generic</strong>, and feel the system
+<strong>does not fully use resume/JD context</strong>; many want
+practice that feels <strong>closer to a real interview</strong>.</td>
+<td>We prioritise <strong>Track-aligned transparency</strong>: reasoning
+text and <strong>confidence</strong> next to scores; <strong>capability
+boundaries</strong> in plain language; <strong>user control</strong>
+(flag, override, undo) so users are not forced to trust a black
+box.</td>
+</tr>
+<tr>
+<td>Persona (D1)</td>
+<td><strong>Fresh graduates</strong> in tech-facing roles,
+<strong>laptop-first</strong> preparation, iterative polishing before
+interviews.</td>
+<td><strong>Information architecture</strong> centres on
+<strong>Practice</strong> and <strong>Review</strong> as two primary
+workspaces; <strong>History</strong> supports iteration; layout assumes
+<strong>focused desktop</strong> use.</td>
+</tr>
+<tr>
+<td>Core user task (D1)</td>
+<td>End-to-end preparation: <strong>(A)</strong> role/JD/resume →
+tailored questions → answer → actionable feedback; <strong>(B)</strong>
+optional path using <strong>recorded interview</strong> → extraction →
+review → summary.</td>
+<td>§3 flowcharts and the prototype implement <strong>A</strong> and
+<strong>B</strong> explicitly; labels match D1’s
+<strong>Practice</strong> and <strong>Review</strong> journeys so
+success criteria stay traceable.</td>
+</tr>
+<tr>
+<td>Scope &amp; boundaries (D1)</td>
+<td>AI is a <strong>support tool</strong>, not the final judge; the
+system must <strong>signal low confidence</strong> or insufficient
+context; <strong>no</strong> full recruitment platform or verified
+company question database.</td>
+<td><strong>Banner and limitation copy</strong> on evaluation;
+<strong>degraded</strong> and <strong>fallback</strong> paths when
+extraction or generation fails; scope is reflected in what the UI
+<strong>refuses to claim</strong> (e.g. domain depth, interviewer
+intent).</td>
+</tr>
+</tbody>
+</table>
+<p>We selected <strong>Track A — Smart Adaptive Interfaces</strong>
+because D1 pain points are fundamentally about <strong>human–AI
+collaboration</strong>: users need <strong>adaptation</strong>
+(JD/resume-aware practice) without losing <strong>agency</strong> or
+<strong>trust</strong>. The interaction model in §2.1 is our answer to
+that tension—not a default template.</p>
+<hr />
+<h2 id="interaction-design-specification">2. Interaction Design
+Specification</h2>
+<p><em>Corresponds to Group Project Description §II — “Interaction
+Design Specification: interaction model, overall information
+architecture, and navigation structure.”</em></p>
+<h3 id="interaction-model">2.1 Interaction model</h3>
+<p>We use a <strong>human–AI collaborative</strong> model: the system
+supports preparation and reflection, but the user keeps authority over
+interpretations and scores. D1 explicitly assumed that <strong>users
+retain judgment</strong> while AI assists; our model implements that
+assumption in the interface, not only in written scope.</p>
+<p>Three behaviours run through the UI—each maps to a recurring theme in
+D1 research:</p>
+<ul>
+<li><strong>Transparency</strong> — scores and suggestions are paired
+with short reasoning and <strong>confidence</strong>, so users can judge
+relevance. <em>Rationale (D1):</em> participants reported uncertainty
+about whether AI feedback was <strong>trustworthy</strong> and wanted
+clearer <strong>signals</strong> about when advice applied.</li>
+<li><strong>User control</strong> — users can flag errors, override
+scores, undo, or discard a flawed evaluation (aligned with Track A).
+<em>Rationale (D1):</em> users wanted to <strong>challenge</strong>
+generic or misfit suggestions rather than adopt them as “standard
+answers.”</li>
+<li><strong>Graceful degradation</strong> — when recognition or
+generation fails, the UI offers text input, fallback content, or retry
+instead of a dead end. <em>Rationale (D1):</em> preparation happens
+<strong>under time pressure</strong>; dead ends would break realistic
+rehearsal.</li>
+</ul>
+<p>We also state <strong>capability limits</strong> in plain language
+(what the system can infer vs. what requires a human interviewer), so
+expectations stay realistic—consistent with D1’s boundary that the
+product must <strong>not over-claim</strong> understanding of niche
+depth or company-specific truth.</p>
+<p><strong>Figure D2-1.</strong> <em>Design Spec</em> tab — summary of
+the interaction principles (transparency, control, degradation).</p>
+<figure>
+<img src="figures/D2-1_interaction_model.svg"
+alt="Figure D2-1 — Interaction model" />
+<figcaption aria-hidden="true">Figure D2-1 — Interaction
+model</figcaption>
+</figure>
+<h3 id="information-architecture">2.2 Information architecture</h3>
+<p>Top-level areas are <strong>Dashboard</strong>,
+<strong>Practice</strong>, <strong>Review</strong>,
+<strong>History</strong>, and <strong>Settings</strong>. This split
+mirrors D1’s <strong>two core workflows</strong> (live practice
+vs. post-hoc review of a recording) plus <strong>entry</strong>
+(Dashboard), <strong>continuity</strong> (History), and
+<strong>preferences</strong> (Settings). <strong>Practice</strong> and
+<strong>Review</strong> contain nested steps (e.g. job context → resume
+→ questions → answer → feedback; upload → extract → summary)—the same
+stages named in D1’s task narrative. <strong>Exception-related</strong>
+branches (voice failure, AI error, extraction failure) are included in
+the IA view so failures are part of the structure, not an
+afterthought—because D1 scoped <strong>unreliable AI or audio</strong>
+as realistic constraints, not edge cases we can ignore in the
+diagram.</p>
+<p><strong>Figure D2-2.</strong> <em>Design Spec</em> tab —
+<strong>information architecture</strong> (global modules, nested
+Practice flow, key failure routes).</p>
+<figure>
+<img src="figures/D2-2_information_architecture.svg"
+alt="Figure D2-2 — Information architecture (excerpt)" />
+<figcaption aria-hidden="true">Figure D2-2 — Information architecture
+(excerpt)</figcaption>
+</figure>
+<h3 id="navigation-structure">2.3 Navigation structure</h3>
+<p><strong>Global navigation</strong> uses a <strong>persistent
+sidebar</strong> across modules. <strong>Multi-step</strong> flows use
+<strong>breadcrumbs</strong> and <strong>Next / Back</strong> where
+appropriate. A <strong>navigation transition table</strong> records
+primary <strong>page jumps</strong>: from-state, to-state, user trigger,
+and transition type (e.g. slide, fade), which documents
+<strong>operational feedback</strong> between states as required by
+§II.</p>
+<p><strong>Figure D2-3.</strong> <em>Design Spec</em> tab — excerpt of
+the <strong>navigation transition table</strong> (primary jumps).</p>
+<figure>
+<img src="figures/D2-3_navigation_table.svg"
+alt="Figure D2-3 — Navigation transition table (excerpt)" />
+<figcaption aria-hidden="true">Figure D2-3 — Navigation transition table
+(excerpt)</figcaption>
+</figure>
+<hr />
+<h2 id="full-workflow-of-core-tasks">3. Full Workflow of Core Tasks</h2>
+<p><em>Corresponds to Group Project Description §II — “Full Workflow of
+Core Tasks: end-to-end interaction flowcharts including page jumps,
+operational feedback, and exception branches,” aligned with
+<strong>Deliverable 1</strong> core user tasks.</em></p>
+<h3 id="alignment-with-deliverable-1">3.1 Alignment with Deliverable
+1</h3>
+<p>Deliverable 1 defines <strong>one integrated goal</strong>—prepare
+for a specific interview using AI support—with two concrete
+<strong>paths</strong>: <strong>Practice</strong> (generate and answer
+role-relevant questions, receive feedback) and <strong>Review</strong>
+(upload a recording, extract Q&amp;A, receive a structured summary). The
+flowcharts in §3.2–3.3 are a <strong>direct decomposition</strong> of
+those paths: they add <strong>operational detail</strong> (page-level
+steps, system feedback, failure recovery) required by §II but
+<strong>not</strong> new user goals.</p>
+<p>We keep <strong>terminology aligned with D1</strong> so reviewers can
+map any screen or branch back to the D1 task description and success
+criteria. If the team finalises different wording in D1,
+<strong>flowchart labels and this section should be updated
+together</strong> so traceability is preserved.</p>
+<h3 id="practice-workflow">3.2 Practice workflow</h3>
+<p>The <strong>Practice</strong> flow runs from role/JD input and resume
+upload through AI-generated questions, text or voice answers, AI
+evaluation, user control actions, then next question or save/exit. The
+diagram includes <strong>decision nodes</strong> (validation, network,
+AI success, voice recognition) and <strong>exception branches</strong>
+(invalid file, network error, AI error, voice failure) with
+<strong>recovery</strong> (retry, fallback, manual input).</p>
+<p><strong>Figure D2-4.</strong> <em>Flow Diagrams</em> tab —
+<strong>Practice</strong> end-to-end flow (happy path + exception
+cluster).</p>
+<figure>
+<img src="figures/D2-4_practice_workflow.svg"
+alt="Figure D2-4 — Practice workflow (simplified)" />
+<figcaption aria-hidden="true">Figure D2-4 — Practice workflow
+(simplified)</figcaption>
+</figure>
+<h3 id="review-workflow">3.3 Review workflow</h3>
+<p>The <strong>Review</strong> flow runs from audio upload through
+extraction and optional editing of Q&amp;A, to feedback summary and
+export or follow-up. It includes branches for invalid upload, extraction
+failure, low audio quality, and network issues, with explicit recovery
+paths.</p>
+<p><strong>Figure D2-5.</strong> <em>Flow Diagrams</em> tab —
+<strong>Review</strong> end-to-end flow (happy path + exceptions).</p>
+<figure>
+<img src="figures/D2-5_review_workflow.svg"
+alt="Figure D2-5 — Review workflow (simplified)" />
+<figcaption aria-hidden="true">Figure D2-5 — Review workflow
+(simplified)</figcaption>
+</figure>
+<h3 id="page-jumps-feedback-and-exceptions-summary">3.4 Page jumps,
+feedback, and exceptions (summary)</h3>
+<p>Together, §3.2–3.3 satisfy §II’s requirement for <strong>page
+jumps</strong>, <strong>operational feedback</strong>, and
+<strong>exception branches</strong>. The <strong>Prototype</strong> tab
+implements the same branches at a demonstrable level (see §4), including
+modals for selected failures.</p>
+<hr />
+<h2 id="interactive-prototype">4. Interactive Prototype</h2>
+<p><em>Corresponds to Group Project Description §II — “Interactive
+Prototype: appropriate fidelity (high-fidelity recommended; tools such
+as Figma, Axure, etc., are acceptable) that fully covers the entire core
+task workflow.”</em></p>
+<h3 id="fidelity-and-coverage-of-core-tasks">4.1 Fidelity and coverage
+of core tasks</h3>
+<p>The <strong>Prototype</strong> tab provides a
+<strong>high-fidelity</strong>, <strong>click-through</strong>
+experience: <strong>Dashboard</strong>, full <strong>Practice</strong>
+path, <strong>Review</strong> path, <strong>History</strong>, and
+<strong>Settings</strong>. <strong>Fault scenarios</strong> can be shown
+via controls that open <strong>voice recognition failure</strong> and
+<strong>AI generation error</strong> modals, matching exception nodes on
+the flowcharts.</p>
+<h3 id="submission-artefact">4.2 Submission artefact</h3>
+<p>The interactive prototype is submitted as <strong>one self-contained
+HTML file</strong> (simulated AI and error paths; no backend required).
+If the course asks for a public link, the team may host the same file on
+a static page (for example a project hosting service) and cite that URL
+in the portfolio.</p>
+<p><strong>Figure D2-6.</strong> <em>Prototype</em> tab — key screens
+along the <strong>core path</strong> (schematic strip).</p>
+<figure>
+<img src="figures/D2-6_prototype_core_path.svg"
+alt="Figure D2-6 — Prototype core path" />
+<figcaption aria-hidden="true">Figure D2-6 — Prototype core
+path</figcaption>
+</figure>
+<p><strong>Figure D2-7.</strong> <em>Prototype</em> tab —
+<strong>failure and limitation</strong> patterns (Track A: banner, two
+failure modals, confidence / audio-quality line).</p>
+<figure>
+<img src="figures/D2-7_trackA_failures_limits.svg"
+alt="Figure D2-7 — Track A failures &amp; limitations" />
+<figcaption aria-hidden="true">Figure D2-7 — Track A failures &amp;
+limitations</figcaption>
+</figure>
+<hr />
+<h2 id="track-a-minimum-standards-iii">5. Track A — Minimum Standards
+(§III)</h2>
+<p><em>Track-specific requirements are minimum completion criteria;
+failure to meet them can reduce the Track-Specific Compliance module
+(<strong>§V</strong>).</em></p>
+<p>These requirements also <strong>reinforce D1</strong>: users who
+doubt AI reliability (see §1.1) need <strong>visible
+boundaries</strong>, <strong>recoverable failures</strong>, and
+<strong>honest limitation signals</strong>—which is exactly what the
+§III checklist demands.</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr>
+<th>§III requirement</th>
+<th>Where it appears in our design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Capability boundaries</strong> — what the system can and
+cannot do</td>
+<td><em>Design Spec</em>: Can / Cannot / Limited list;
+<em>Prototype</em>: contextual banner on evaluation views.</td>
+</tr>
+<tr>
+<td><strong>User control</strong> — override, confirmation, undo,
+etc.</td>
+<td><em>Prototype</em>: Feedback actions (flag, override, undo,
+discard); <em>Settings</em>: confirmations for sensitive actions.</td>
+</tr>
+<tr>
+<td><strong>≥ Two system failure interface solutions</strong></td>
+<td><em>Prototype</em>: modals for <strong>voice recognition
+failed</strong> and <strong>AI generation error</strong> (with
+fallbacks/retry).</td>
+</tr>
+<tr>
+<td><strong>≥ One mechanism communicating limitations</strong></td>
+<td>Confidence indicators; low-confidence copy; <strong>audio
+quality</strong> warning on extraction.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="alignment-with-interaction-design-prototype-quality-v">6.
+Alignment with “Interaction Design &amp; Prototype Quality” (§V)</h2>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr>
+<th>§V emphasis</th>
+<th>How this chapter addresses it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rationality of interaction logic</td>
+<td>Linear guided flows; explicit confirm/retry/fallback; AI outputs
+tied to confidence and user actions (§2–4).</td>
+</tr>
+<tr>
+<td>Clarity of information architecture</td>
+<td>Single top-level IA; nested flows; failure routes in IA (§2.2,
+Figure D2-2).</td>
+</tr>
+<tr>
+<td>Prototype completeness</td>
+<td>Both core journeys plus History and Settings; demonstrable failure
+UIs (§4).</td>
+</tr>
+<tr>
+<td>Integrity of core task workflows</td>
+<td>Flowcharts (§3) match navigable screens and modals in the prototype
+(§4).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="list-of-figures">7. List of figures</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Figure</th>
+<th>Caption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Figure D2-1</td>
+<td>Interaction model: transparency, user control, graceful
+degradation.</td>
+</tr>
+<tr>
+<td>Figure D2-2</td>
+<td>Information architecture and main exception paths.</td>
+</tr>
+<tr>
+<td>Figure D2-3</td>
+<td>Navigation structure: primary transitions and triggers.</td>
+</tr>
+<tr>
+<td>Figure D2-4</td>
+<td>Full Practice workflow with exception branches (simplified).</td>
+</tr>
+<tr>
+<td>Figure D2-5</td>
+<td>Full Review workflow with exception branches (simplified).</td>
+</tr>
+<tr>
+<td>Figure D2-6</td>
+<td>Key screens along the primary user journey.</td>
+</tr>
+<tr>
+<td>Figure D2-7</td>
+<td>Track A: failure handling and limitation communication.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">8. Conclusion</h2>
+<p>This deliverable provides (1) an <strong>interaction design
+specification</strong>, (2) <strong>full core-task workflows</strong>
+with <strong>page jumps, feedback, and exception branches</strong>, and
+(3) a <strong>high-fidelity interactive prototype</strong> covering
+those workflows, as required by <strong>§II</strong>. The content is
+<strong>derived from Deliverable 1</strong>: persona, questionnaire
+insights, core user tasks, and scope jointly motivated the interaction
+model, IA split, dual workflows, and Track A patterns. It documents
+<strong>Track A</strong> minimum interface expectations
+(<strong>§III</strong>) and aligns with <strong>Interaction Design &amp;
+Prototype Quality</strong> (<strong>§V</strong>). The prototype is also
+intended as the <strong>test surface</strong> for <strong>Deliverable
+3</strong> (evaluation and iteration).</p>
+<hr />
+<h2 id="references">References</h2>
+<ol type="1">
+<li><p>COMP7505 <em>Group Project Description</em> (Moodle: COMP7505 →
+Project) — §I Core Project Brief; §II Mandatory Deliverable Components;
+§III Track A; §V Main Grading Criteria.</p></li>
+<li><p>COMP7505 <em>Workshop Handout Day 2</em> — Card sorting and
+information framework for navigation and task journeys.</p></li>
+<li><p><strong>Team Deliverable 1 (this project)</strong> — User
+research questionnaire and synthesis; primary persona / user profile;
+<strong>core user tasks</strong> (Practice and Review journeys);
+<strong>project scope &amp; boundaries</strong> (including design
+assumptions and excluded services). This chapter implements those
+definitions rather than replacing them.</p></li>
+</ol>
+<hr />
+<p><em>End of Deliverable 2.</em></p>
+</body>
+</html>

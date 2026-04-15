@@ -7,19 +7,32 @@
 | Product | AI Interview Copilot (InterviewAI) |
 | Track | Track A — Smart Adaptive Interfaces |
 | Document version | 1.0 (submission draft) |
-| Prototype artefact | `index.html` (repository root) |
+| Prototype artefact | Single-page HTML prototype (interactive) |
 
-This chapter responds to **§II, Deliverable 2** of the *COMP7505 Group Project Description*: (1) **Interaction Design Specification**, (2) **Full Workflow of Core Tasks**, and (3) **Interactive Prototype**. The same chapter supports the grading module **“Interaction Design & Prototype Quality”** (**§V**). Where **Deliverable 1** defines personas, core user tasks, and success criteria, we use consistent naming here so reviewers can trace requirements through to flows and screens.
+This chapter responds to **§II, Deliverable 2** of the *COMP7505 Group Project Description*: (1) **Interaction Design Specification**, (2) **Full Workflow of Core Tasks**, and (3) **Interactive Prototype**. The same chapter supports the grading module **“Interaction Design & Prototype Quality”** (**§V**).
+
+**Everything below is grounded in our team’s Deliverable 1 (D1).** D1 established *who* we design for, *what* end-to-end tasks must succeed, and *what* is out of scope. We do **not** introduce new user goals here; we **specify interaction structure, flows, and a prototype** that **realise** those D1 commitments. Naming of journeys (**Practice** vs **Review**), emphasis on **trustworthy and inspectable AI behaviour**, and **explicit limits** on automation all follow from D1—not from generic “AI app” patterns.
 
 ---
 
 ## 1. Introduction
 
-The course allows functions to be **simulated** rather than fully implemented (**§I**). Our team therefore delivers a **single-file HTML prototype** (`index.html`) with three tabs—**Design Spec**, **Flow Diagrams**, and **Prototype**—linking specification, diagrams, and a click-through demo in one place. Methodologically, we relate the information structure to **card sorting** and an explicit information framework (*Workshop Handout Day 2*).
+The course allows functions to be **simulated** rather than fully implemented (**§I**). Our team therefore delivers a **single-file HTML prototype** with three tabs—**Design Spec**, **Flow Diagrams**, and **Prototype**—linking specification, diagrams, and a click-through demo in one place. Methodologically, we relate the information structure to **card sorting** and an explicit information framework (*Workshop Handout Day 2*).
 
-The chapter is organised to mirror the three mandatory components of Deliverable 2, then documents **Track A** minimum interface requirements (**§III**), and ends with a **figure list** for the PDF report.
+The chapter is organised to mirror the three mandatory components of Deliverable 2, then documents **Track A** minimum interface requirements (**§III**), and closes with a consolidated **list of figures**. The figures throughout this chapter are **schematic diagrams** aligned with §2–§4; they summarise the same content as the embedded specification and flow views in the prototype.
 
-**Figures in this file:** SVG + PNG exports live in `figures/` (same folder as this Markdown). They are **submission-ready schematics** aligned with §2–§4 (Style 1 flat, validated with `rsvg-convert`). You may optionally replace any figure with a **screenshot** from `index.html` if your instructor asks for pixel-identical captures of the Mermaid/prototype UI.
+### 1.1 From Deliverable 1 to this chapter — why we designed it this way
+
+Deliverable 1 combined **pre-project user research** (a short questionnaire with target users) with a **primary persona**, **core user task** definition, and **project scope & boundaries**. The following table states how those D1 outputs **directly motivate** the design choices in §2–§5.
+
+| D1 input | User or research insight (summary) | Design response in this deliverable |
+|----------|-------------------------------------|-------------------------------------|
+| Questionnaire & interviews | Candidates worry whether **AI feedback is reliable**, find feedback **too generic**, and feel the system **does not fully use resume/JD context**; many want practice that feels **closer to a real interview**. | We prioritise **Track-aligned transparency**: reasoning text and **confidence** next to scores; **capability boundaries** in plain language; **user control** (flag, override, undo) so users are not forced to trust a black box. |
+| Persona (D1) | **Fresh graduates** in tech-facing roles, **laptop-first** preparation, iterative polishing before interviews. | **Information architecture** centres on **Practice** and **Review** as two primary workspaces; **History** supports iteration; layout assumes **focused desktop** use. |
+| Core user task (D1) | End-to-end preparation: **(A)** role/JD/resume → tailored questions → answer → actionable feedback; **(B)** optional path using **recorded interview** → extraction → review → summary. | §3 flowcharts and the prototype implement **A** and **B** explicitly; labels match D1’s **Practice** and **Review** journeys so success criteria stay traceable. |
+| Scope & boundaries (D1) | AI is a **support tool**, not the final judge; the system must **signal low confidence** or insufficient context; **no** full recruitment platform or verified company question database. | **Banner and limitation copy** on evaluation; **degraded** and **fallback** paths when extraction or generation fails; scope is reflected in what the UI **refuses to claim** (e.g. domain depth, interviewer intent). |
+
+We selected **Track A — Smart Adaptive Interfaces** because D1 pain points are fundamentally about **human–AI collaboration**: users need **adaptation** (JD/resume-aware practice) without losing **agency** or **trust**. The interaction model in §2.1 is our answer to that tension—not a default template.
 
 ---
 
@@ -29,25 +42,27 @@ The chapter is organised to mirror the three mandatory components of Deliverable
 
 ### 2.1 Interaction model
 
-We use a **human–AI collaborative** model: the system supports preparation and reflection, but the user keeps authority over interpretations and scores. Three behaviours run through the UI:
+We use a **human–AI collaborative** model: the system supports preparation and reflection, but the user keeps authority over interpretations and scores. D1 explicitly assumed that **users retain judgment** while AI assists; our model implements that assumption in the interface, not only in written scope.
 
-- **Transparency** — scores and suggestions are paired with short reasoning and confidence, so users can judge relevance.
-- **User control** — users can flag errors, override scores, undo, or discard a flawed evaluation (aligned with Track A).
-- **Graceful degradation** — when recognition or generation fails, the UI offers text input, fallback content, or retry instead of a dead end.
+Three behaviours run through the UI—each maps to a recurring theme in D1 research:
 
-We also state **capability limits** in plain language (what the system can infer vs. what requires a human interviewer), so expectations stay realistic.
+- **Transparency** — scores and suggestions are paired with short reasoning and **confidence**, so users can judge relevance. *Rationale (D1):* participants reported uncertainty about whether AI feedback was **trustworthy** and wanted clearer **signals** about when advice applied.
+- **User control** — users can flag errors, override scores, undo, or discard a flawed evaluation (aligned with Track A). *Rationale (D1):* users wanted to **challenge** generic or misfit suggestions rather than adopt them as “standard answers.”
+- **Graceful degradation** — when recognition or generation fails, the UI offers text input, fallback content, or retry instead of a dead end. *Rationale (D1):* preparation happens **under time pressure**; dead ends would break realistic rehearsal.
+
+We also state **capability limits** in plain language (what the system can infer vs. what requires a human interviewer), so expectations stay realistic—consistent with D1’s boundary that the product must **not over-claim** understanding of niche depth or company-specific truth.
 
 **Figure D2-1.** *Design Spec* tab — summary of the interaction principles (transparency, control, degradation).
 
-![Figure D2-1 — Interaction model](figures/D2-1_interaction_model.png)
+![Figure D2-1 — Interaction model](figures/D2-1_interaction_model.svg)
 
 ### 2.2 Information architecture
 
-Top-level areas are **Dashboard**, **Practice**, **Review**, **History**, and **Settings**. **Practice** and **Review** contain nested steps (e.g. job context → resume → questions → answer → feedback; upload → extract → summary). **Exception-related** branches (voice failure, AI error, extraction failure) are included in the IA view so failures are part of the structure, not an afterthought.
+Top-level areas are **Dashboard**, **Practice**, **Review**, **History**, and **Settings**. This split mirrors D1’s **two core workflows** (live practice vs. post-hoc review of a recording) plus **entry** (Dashboard), **continuity** (History), and **preferences** (Settings). **Practice** and **Review** contain nested steps (e.g. job context → resume → questions → answer → feedback; upload → extract → summary)—the same stages named in D1’s task narrative. **Exception-related** branches (voice failure, AI error, extraction failure) are included in the IA view so failures are part of the structure, not an afterthought—because D1 scoped **unreliable AI or audio** as realistic constraints, not edge cases we can ignore in the diagram.
 
 **Figure D2-2.** *Design Spec* tab — **information architecture** (global modules, nested Practice flow, key failure routes).
 
-![Figure D2-2 — Information architecture (excerpt)](figures/D2-2_information_architecture.png)
+![Figure D2-2 — Information architecture (excerpt)](figures/D2-2_information_architecture.svg)
 
 ### 2.3 Navigation structure
 
@@ -55,7 +70,7 @@ Top-level areas are **Dashboard**, **Practice**, **Review**, **History**, and **
 
 **Figure D2-3.** *Design Spec* tab — excerpt of the **navigation transition table** (primary jumps).
 
-![Figure D2-3 — Navigation transition table (excerpt)](figures/D2-3_navigation_table.png)
+![Figure D2-3 — Navigation transition table (excerpt)](figures/D2-3_navigation_table.svg)
 
 ---
 
@@ -65,7 +80,9 @@ Top-level areas are **Dashboard**, **Practice**, **Review**, **History**, and **
 
 ### 3.1 Alignment with Deliverable 1
 
-Core tasks in D1 should name the end-to-end journeys (e.g. complete a **Practice** session with AI feedback; complete a **Review** of a recording). The flowcharts below use the same journey names; if D1 task wording is updated before submission, **flowchart labels and this section should be updated in the same pass** so success criteria remain traceable.
+Deliverable 1 defines **one integrated goal**—prepare for a specific interview using AI support—with two concrete **paths**: **Practice** (generate and answer role-relevant questions, receive feedback) and **Review** (upload a recording, extract Q&A, receive a structured summary). The flowcharts in §3.2–3.3 are a **direct decomposition** of those paths: they add **operational detail** (page-level steps, system feedback, failure recovery) required by §II but **not** new user goals.
+
+We keep **terminology aligned with D1** so reviewers can map any screen or branch back to the D1 task description and success criteria. If the team finalises different wording in D1, **flowchart labels and this section should be updated together** so traceability is preserved.
 
 ### 3.2 Practice workflow
 
@@ -73,7 +90,7 @@ The **Practice** flow runs from role/JD input and resume upload through AI-gener
 
 **Figure D2-4.** *Flow Diagrams* tab — **Practice** end-to-end flow (happy path + exception cluster).
 
-![Figure D2-4 — Practice workflow (simplified)](figures/D2-4_practice_workflow.png)
+![Figure D2-4 — Practice workflow (simplified)](figures/D2-4_practice_workflow.svg)
 
 ### 3.3 Review workflow
 
@@ -81,7 +98,7 @@ The **Review** flow runs from audio upload through extraction and optional editi
 
 **Figure D2-5.** *Flow Diagrams* tab — **Review** end-to-end flow (happy path + exceptions).
 
-![Figure D2-5 — Review workflow (simplified)](figures/D2-5_review_workflow.png)
+![Figure D2-5 — Review workflow (simplified)](figures/D2-5_review_workflow.svg)
 
 ### 3.4 Page jumps, feedback, and exceptions (summary)
 
@@ -99,22 +116,23 @@ The **Prototype** tab provides a **high-fidelity**, **click-through** experience
 
 ### 4.2 Submission artefact
 
-- **File:** `index.html` at the repository root (self-contained; simulated AI and errors).  
-- **Online (optional):** if the team publishes **GitHub Pages** or another host, add the URL in the portfolio cover sheet or appendix.
+The interactive prototype is submitted as **one self-contained HTML file** (simulated AI and error paths; no backend required). If the course asks for a public link, the team may host the same file on a static page (for example a project hosting service) and cite that URL in the portfolio.
 
 **Figure D2-6.** *Prototype* tab — key screens along the **core path** (schematic strip).
 
-![Figure D2-6 — Prototype core path](figures/D2-6_prototype_core_path.png)
+![Figure D2-6 — Prototype core path](figures/D2-6_prototype_core_path.svg)
 
 **Figure D2-7.** *Prototype* tab — **failure and limitation** patterns (Track A: banner, two failure modals, confidence / audio-quality line).
 
-![Figure D2-7 — Track A failures & limitations](figures/D2-7_trackA_failures_limits.png)
+![Figure D2-7 — Track A failures & limitations](figures/D2-7_trackA_failures_limits.svg)
 
 ---
 
 ## 5. Track A — Minimum Standards (§III)
 
 *Track-specific requirements are minimum completion criteria; failure to meet them can reduce the Track-Specific Compliance module (**§V**).*
+
+These requirements also **reinforce D1**: users who doubt AI reliability (see §1.1) need **visible boundaries**, **recoverable failures**, and **honest limitation signals**—which is exactly what the §III checklist demands.
 
 | §III requirement | Where it appears in our design |
 |------------------|--------------------------------|
@@ -136,25 +154,23 @@ The **Prototype** tab provides a **high-fidelity**, **click-through** experience
 
 ---
 
-## 7. List of figures (for the PDF report)
+## 7. List of figures
 
-Files are under `UI/docs/figures/` (SVG source + 1920px PNG). Regenerate with `python3 figures/generate_d2_diagrams.py` then re-run `rsvg-convert` if you edit the script.
-
-| ID | File (PNG) | Suggested caption |
-|----|------------|-------------------|
-| Figure D2-1 | `D2-1_interaction_model.png` | Interaction model: transparency, user control, graceful degradation. |
-| Figure D2-2 | `D2-2_information_architecture.png` | Information architecture and main exception paths. |
-| Figure D2-3 | `D2-3_navigation_table.png` | Navigation structure: primary transitions and triggers. |
-| Figure D2-4 | `D2-4_practice_workflow.png` | Full Practice workflow with exception branches (simplified). |
-| Figure D2-5 | `D2-5_review_workflow.png` | Full Review workflow with exception branches (simplified). |
-| Figure D2-6 | `D2-6_prototype_core_path.png` | Key screens along the primary user journey. |
-| Figure D2-7 | `D2-7_trackA_failures_limits.png` | Track A: failure handling and limitation communication. |
+| Figure | Caption |
+|--------|---------|
+| Figure D2-1 | Interaction model: transparency, user control, graceful degradation. |
+| Figure D2-2 | Information architecture and main exception paths. |
+| Figure D2-3 | Navigation structure: primary transitions and triggers. |
+| Figure D2-4 | Full Practice workflow with exception branches (simplified). |
+| Figure D2-5 | Full Review workflow with exception branches (simplified). |
+| Figure D2-6 | Key screens along the primary user journey. |
+| Figure D2-7 | Track A: failure handling and limitation communication. |
 
 ---
 
 ## 8. Conclusion
 
-This deliverable provides (1) an **interaction design specification**, (2) **full core-task workflows** with **page jumps, feedback, and exception branches**, and (3) a **high-fidelity interactive prototype** covering those workflows, as required by **§II**. It documents **Track A** minimum interface expectations (**§III**) and aligns with **Interaction Design & Prototype Quality** (**§V**). The prototype is also intended as the **test surface** for **Deliverable 3** (evaluation and iteration).
+This deliverable provides (1) an **interaction design specification**, (2) **full core-task workflows** with **page jumps, feedback, and exception branches**, and (3) a **high-fidelity interactive prototype** covering those workflows, as required by **§II**. The content is **derived from Deliverable 1**: persona, questionnaire insights, core user tasks, and scope jointly motivated the interaction model, IA split, dual workflows, and Track A patterns. It documents **Track A** minimum interface expectations (**§III**) and aligns with **Interaction Design & Prototype Quality** (**§V**). The prototype is also intended as the **test surface** for **Deliverable 3** (evaluation and iteration).
 
 ---
 
@@ -163,6 +179,8 @@ This deliverable provides (1) an **interaction design specification**, (2) **ful
 1. COMP7505 *Group Project Description* (Moodle: COMP7505 → Project) — §I Core Project Brief; §II Mandatory Deliverable Components; §III Track A; §V Main Grading Criteria.
 
 2. COMP7505 *Workshop Handout Day 2* — Card sorting and information framework for navigation and task journeys.
+
+3. **Team Deliverable 1 (this project)** — User research questionnaire and synthesis; primary persona / user profile; **core user tasks** (Practice and Review journeys); **project scope & boundaries** (including design assumptions and excluded services). This chapter implements those definitions rather than replacing them.
 
 ---
 
