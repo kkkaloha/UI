@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960">
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
+    .t { fill: #111827; font-size: 14px; }
+    .st { fill: #6b7280; font-size: 11px; }
+    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
+    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
+  </style>
+
+
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
+<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-1 — Interaction model</text>
+
+<text x="480" y="58" text-anchor="middle" class="st">Human–AI collaborative model (Track A)</text>
+<rect x="300" y="78" width="360" height="44" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="480" y="104" text-anchor="middle" class="sub">User retains authority over scores &amp; interpretations</text>
+<!-- three pillars -->
+<rect x="40" y="160" width="260" height="130" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="170" y="188" text-anchor="middle" class="sub">Transparency</text>
+<text x="170" y="210" text-anchor="middle" class="st">Reasoning + confidence</text>
+<text x="170" y="232" text-anchor="middle" class="st">beside every AI score</text>
+
+<rect x="350" y="160" width="260" height="130" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+<text x="480" y="188" text-anchor="middle" class="sub">User control</text>
+<text x="480" y="210" text-anchor="middle" class="st">Flag · Override · Undo · Discard</text>
+
+<rect x="660" y="160" width="260" height="130" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<text x="790" y="188" text-anchor="middle" class="sub">Graceful degradation</text>
+<text x="790" y="210" text-anchor="middle" class="st">Text fallback · general Qs · retry</text>
+
+<line x1="480" y1="122" x2="170" y2="160" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+<line x1="480" y1="122" x2="480" y2="160" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+<line x1="480" y1="122" x2="790" y2="160" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+<text x="480" y="330" text-anchor="middle" class="st">Capability limits stated in plain language (Design Spec + banners)</text>
+
+</svg>

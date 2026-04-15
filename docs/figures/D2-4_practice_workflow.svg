@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960">
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
+    .t { fill: #111827; font-size: 14px; }
+    .st { fill: #6b7280; font-size: 11px; }
+    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
+    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
+  </style>
+
+
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
+<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-4 — Practice workflow (simplified)</text>
+<rect x="400" y="70" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="92" text-anchor="middle" class="sub">Start</text><line x1="480" y1="114" x2="480" y2="130" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="130" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="152" text-anchor="middle" class="sub">Job / JD input</text><text x="480.0" y="172" text-anchor="middle" class="st">validate</text><line x1="480" y1="174" x2="480" y2="190" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="190" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="212" text-anchor="middle" class="sub">Resume upload</text><text x="480.0" y="232" text-anchor="middle" class="st">file OK?</text><line x1="480" y1="234" x2="480" y2="250" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="250" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="272" text-anchor="middle" class="sub">AI questions</text><text x="480.0" y="292" text-anchor="middle" class="st">network / AI OK?</text><line x1="480" y1="294" x2="480" y2="310" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="310" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="332" text-anchor="middle" class="sub">Answer</text><text x="480.0" y="352" text-anchor="middle" class="st">text or voice</text><line x1="480" y1="354" x2="480" y2="370" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="370" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="392" text-anchor="middle" class="sub">AI evaluation</text><text x="480.0" y="412" text-anchor="middle" class="st">scores + confidence</text><line x1="480" y1="414" x2="480" y2="430" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="430" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="452" text-anchor="middle" class="sub">User control</text><text x="480.0" y="472" text-anchor="middle" class="st">flag / override / undo</text><line x1="480" y1="474" x2="480" y2="490" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="490" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="512" text-anchor="middle" class="sub">Next Q or Save</text><text x="480.0" y="532" text-anchor="middle" class="st">→ Dashboard</text><rect x="620" y="250" width="140" height="100" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/><text x="690" y="278" text-anchor="middle" class="sub">Exceptions</text><text x="690" y="300" text-anchor="middle" class="st">Invalid file</text><text x="690" y="318" text-anchor="middle" class="st">Network / AI error</text><text x="690" y="336" text-anchor="middle" class="st">Voice → text fallback</text><path d="M 560 270 L 620 290" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arrR)"/><text x="480" y="560" text-anchor="middle" class="st">Practice journey — happy path (centre) · recovery (right)</text>
+</svg>

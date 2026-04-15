@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960">
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
+    .t { fill: #111827; font-size: 14px; }
+    .st { fill: #6b7280; font-size: 11px; }
+    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
+    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
+  </style>
+
+
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
+<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-7 — Failure UI &amp; limitations (Track A)</text>
+
+<text x="480" y="52" text-anchor="middle" class="st">Track A — failure handling &amp; limitation communication</text>
+<!-- banner -->
+<rect x="40" y="75" width="880" height="40" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="60" y="100" class="t">Limitation banner: AI evaluates structure / expression — not domain depth or interviewer intent</text>
+<!-- modals -->
+<rect x="80" y="150" width="360" height="160" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+<text x="260" y="185" text-anchor="middle" class="sub">Voice recognition failed</text>
+<text x="260" y="215" text-anchor="middle" class="st">Fallback: switch to text · progress kept</text>
+<text x="260" y="245" text-anchor="middle" class="st">Actions: Retry voice · Use text</text>
+
+<rect x="520" y="150" width="360" height="160" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+<text x="700" y="185" text-anchor="middle" class="sub">AI generation error</text>
+<text x="700" y="215" text-anchor="middle" class="st">Fallback: general question bank</text>
+<text x="700" y="245" text-anchor="middle" class="st">Actions: Retry · Use general Qs</text>
+
+<!-- confidence -->
+<rect x="200" y="340" width="560" height="56" rx="8" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="480" y="365" text-anchor="middle" class="sub">Confidence &amp; low-audio warning (extraction / scoring)</text>
+<text x="480" y="385" text-anchor="middle" class="st">Progress bar · “55% — reduced due to audio quality” (example)</text>
+
+</svg>

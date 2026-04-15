@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960">
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
+    .t { fill: #111827; font-size: 14px; }
+    .st { fill: #6b7280; font-size: 11px; }
+    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
+    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
+  </style>
+
+
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
+<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-5 — Review workflow (simplified)</text>
+<rect x="400" y="70" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="92" text-anchor="middle" class="sub">Upload audio</text><text x="480.0" y="112" text-anchor="middle" class="st">format check</text><line x1="480" y1="114" x2="480" y2="130" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="130" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="152" text-anchor="middle" class="sub">Extract Q&amp;A</text><text x="480.0" y="172" text-anchor="middle" class="st">ASR / NLP</text><line x1="480" y1="174" x2="480" y2="190" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="190" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="212" text-anchor="middle" class="sub">Review / edit</text><text x="480.0" y="232" text-anchor="middle" class="st">low quality warn</text><line x1="480" y1="234" x2="480" y2="250" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="250" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="272" text-anchor="middle" class="sub">AI summary</text><text x="480.0" y="292" text-anchor="middle" class="st">network OK?</text><line x1="480" y1="294" x2="480" y2="310" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="310" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="332" text-anchor="middle" class="sub">Export / practice gaps</text><text x="480.0" y="352" text-anchor="middle" class="st">save</text><rect x="620" y="130" width="150" height="120" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/><text x="695" y="158" text-anchor="middle" class="sub">Exceptions</text><text x="695" y="182" text-anchor="middle" class="st">Invalid file → re-upload</text><text x="695" y="202" text-anchor="middle" class="st">Extract fail → manual</text><text x="695" y="222" text-anchor="middle" class="st">Audio unclear → warn</text><path d="M 560 152 L 620 170" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arrR)"/><text x="480" y="400" text-anchor="middle" class="st">Review journey — aligned with Deliverable 1 task names</text>
+</svg>

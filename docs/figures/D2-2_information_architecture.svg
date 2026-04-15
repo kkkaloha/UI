@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960">
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
+    .t { fill: #111827; font-size: 14px; }
+    .st { fill: #6b7280; font-size: 11px; }
+    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
+    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
+  </style>
+
+
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
+<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-2 — Information architecture (excerpt)</text>
+
+<!-- root -->
+<rect x="380" y="70" width="200" height="48" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="480" y="100" text-anchor="middle" class="sub">InterviewAI</text>
+<!-- row modules -->
+<rect x="40" y="180" width="120" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="100" y="206" text-anchor="middle" class="t">Dashboard</text>
+<line x1="480" y1="118" x2="100" y2="180" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+
+<rect x="180" y="160" width="140" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="250" y="188" text-anchor="middle" class="sub">Practice</text>
+<text x="250" y="208" text-anchor="middle" class="st">linear flow</text>
+<line x1="480" y1="118" x2="250" y2="160" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+
+<rect x="340" y="160" width="140" height="80" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+<text x="410" y="188" text-anchor="middle" class="sub">Review</text>
+<text x="410" y="208" text-anchor="middle" class="st">upload → extract</text>
+<line x1="480" y1="118" x2="410" y2="160" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+
+<rect x="500" y="180" width="120" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="560" y="206" text-anchor="middle" class="t">History</text>
+<line x1="480" y1="118" x2="560" y2="180" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+
+<rect x="640" y="180" width="120" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="700" y="206" text-anchor="middle" class="t">Settings</text>
+<line x1="480" y1="118" x2="700" y2="180" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/>
+
+<!-- practice sub -->
+<rect x="120" y="290" width="88" height="32" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="164" y="310" text-anchor="middle" class="st">Job · Resume</text>
+<rect x="220" y="290" width="88" height="32" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="264" y="310" text-anchor="middle" class="st">Questions</text>
+<rect x="320" y="290" width="88" height="32" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="364" y="310" text-anchor="middle" class="st">Answer</text>
+<rect x="420" y="290" width="88" height="32" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+<text x="464" y="310" text-anchor="middle" class="st">Feedback</text>
+<line x1="250" y1="240" x2="164" y2="290" stroke="#6b7280" stroke-width="1" marker-end="url(#arrB)"/>
+<path d="M 208 306 L 220 306" stroke="#6b7280" stroke-width="1" marker-end="url(#arrB)"/>
+<path d="M 308 306 L 320 306" stroke="#6b7280" stroke-width="1" marker-end="url(#arrB)"/>
+<path d="M 408 306 L 420 306" stroke="#6b7280" stroke-width="1" marker-end="url(#arrB)"/>
+
+<!-- exceptions -->
+<rect x="80" y="360" width="100" height="36" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1" stroke-dasharray="4 2"/>
+<text x="130" y="382" text-anchor="middle" class="st">Voice fail</text>
+<rect x="200" y="360" width="100" height="36" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1" stroke-dasharray="4 2"/>
+<text x="250" y="382" text-anchor="middle" class="st">AI error</text>
+<line x1="250" y1="240" x2="130" y2="360" stroke="#dc2626" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrR)"/>
+<line x1="250" y1="240" x2="250" y2="360" stroke="#dc2626" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrR)"/>
+
+<text x="700" y="340" text-anchor="middle" class="st">Exception routes included in IA (not afterthought)</text>
+
+</svg>

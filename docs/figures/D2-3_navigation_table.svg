@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960">
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
+    .t { fill: #111827; font-size: 14px; }
+    .st { fill: #6b7280; font-size: 11px; }
+    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
+    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
+  </style>
+
+
+  <defs>
+    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+  </defs>
+
+<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
+<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-3 — Navigation transition table (excerpt)</text>
+<text x="480" y="58" text-anchor="middle" class="st">Primary navigation transitions (excerpt)</text>
+<rect x="40" y="80" width="210" height="36" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="145" y="104" text-anchor="middle" class="sub">From</text>
+<rect x="260" y="80" width="210" height="36" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="365" y="104" text-anchor="middle" class="sub">To</text>
+<rect x="480" y="80" width="210" height="36" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="585" y="104" text-anchor="middle" class="sub">Trigger</text>
+<rect x="700" y="80" width="210" height="36" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="805" y="104" text-anchor="middle" class="sub">Transition</text>
+<rect x="40" y="120" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="48" y="142" class="t">Dashboard</text>
+<rect x="260" y="120" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="268" y="142" class="t">Job Input</text>
+<rect x="480" y="120" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="488" y="142" class="t">Start Practice</text>
+<rect x="700" y="120" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="708" y="142" class="t">slide</text>
+<rect x="40" y="156" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="48" y="178" class="t">Job Input</text>
+<rect x="260" y="156" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="268" y="178" class="t">Resume Upload</text>
+<rect x="480" y="156" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="488" y="178" class="t">Next (valid)</text>
+<rect x="700" y="156" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="708" y="178" class="t">slide</text>
+<rect x="40" y="192" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="48" y="214" class="t">Resume</text>
+<rect x="260" y="192" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="268" y="214" class="t">Questions</text>
+<rect x="480" y="192" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="488" y="214" class="t">Generate</text>
+<rect x="700" y="192" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="708" y="214" class="t">fade+load</text>
+<rect x="40" y="228" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="48" y="250" class="t">Questions</text>
+<rect x="260" y="228" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="268" y="250" class="t">Answer</text>
+<rect x="480" y="228" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="488" y="250" class="t">Select Q</text>
+<rect x="700" y="228" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="708" y="250" class="t">slide</text>
+<rect x="40" y="264" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="48" y="286" class="t">Answer</text>
+<rect x="260" y="264" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="268" y="286" class="t">Feedback</text>
+<rect x="480" y="264" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="488" y="286" class="t">Submit</text>
+<rect x="700" y="264" width="210" height="34" fill="#ffffff" stroke="#e5e7eb"/>
+<text x="708" y="286" class="t">fade+load</text>
+<rect x="40" y="300" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="48" y="322" class="t">Any</text>
+<rect x="260" y="300" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="268" y="322" class="t">History</text>
+<rect x="480" y="300" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="488" y="322" class="t">Sidebar</text>
+<rect x="700" y="300" width="210" height="34" fill="#f9fafb" stroke="#e5e7eb"/>
+<text x="708" y="322" class="t">fade</text>
+
+</svg>
