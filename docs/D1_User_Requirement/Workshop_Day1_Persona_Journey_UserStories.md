@@ -15,17 +15,42 @@ Our project focuses on building an **AI Interview Copilot** — a tool that help
 
 ---
 
-## Activity 1 — Mock Contextual Inquiry (10 min)
+## Activity 1 — User Needs Research (10 min)
 
-### Team Roles
+### Research Method
 
-| Role | Name |
-|------|------|
-| Researcher | [填写] |
-| Recorder | [填写] |
-| Observer(s) | [填写] |
+We distributed a **5-question survey** to 9 respondents (all CS-related fresh graduates, mostly HKU master's students) to understand their pain points with existing AI interview tools and what they truly need. This is **needs discovery**, not product evaluation — we surveyed users before building anything.
 
-### Interview Responses
+### Survey Findings Summary
+
+**Q1 — When do you use AI interview tools?** (multiple choice)
+- BCD (prepare questions, modify answers, pre-interview prep) dominated
+- Respondent 3 also mentioned real interview recording review
+
+**Q2 — Most common operations?** (max 2)
+- Top: generate questions (A), evaluate/polish answers (B/C)
+
+**Q3 — Biggest pain points?** (top 1–2)
+- A: Not sure if AI feedback is reliable
+- B: Feedback too generic, not targeted
+- C: AI doesn't understand my background
+- D: Suggestions feel like "standard answers", not authentic
+- E: Don't know whether to adopt AI suggestions
+
+**Q4 — Most frustrating part?** (open-ended, key quotes)
+- "Providing context is long and complex — hard to express my situation"
+- "AI responses don't sound like what a real person would say"
+- "Generated questions lack JD-specific scenario questions"
+- "Feedback only gives scores and vague comments, no actionable suggestions"
+- "AI only uses templates, doesn't dig into project details like a real interviewer"
+
+**Q5 — Ideal AI interview assistant?** (open-ended, key themes)
+- "Like a real person" (7/9 mentioned)
+- Deep resume/JD understanding + personalized questions
+- Structured, logical feedback with actionable improvements
+- Simulate real interview pressure with follow-up probing
+
+### Anonymized User Profile (from survey data)
 
 **Q1: What are the core scenarios where you use this type of product/service?**
 
@@ -58,16 +83,18 @@ Our project focuses on building an **AI Interview Copilot** — a tool that help
 - Explicitly mentioned "trust" multiple times — this is a core emotional theme
 - Used air quotes when saying "feedback" — implies current feedback feels inauthentic
 
-### Anonymized User Profile
+### Anonymized User Profile (from survey data)
 
 | Field | Details |
 |-------|---------|
-| Age / Profession | 23, fresh CS graduate seeking front-end / full-stack developer roles |
-| Core Usage Scenario | Preparing for specific job interviews using JD + resume context |
-| Key Behaviors | Iterative practice (try → review → refine); prefers typing over voice; uses laptop for preparation |
-| Core Needs | Role-specific questions; actionable, contextual feedback; ability to track improvement over time |
-| Pain Points / Complaints | Generic AI feedback; no reasoning behind scores; AI ignores resume/JD context; can't challenge incorrect evaluations; feels like a "black box" |
-| Unmet Expectations | Wants to see AI's reasoning and confidence level; wants to compare answers across sessions; wants to know what the system CAN'T do |
+| Age / Profession | 22–24, CS-related fresh graduate (mostly HKU master's students) |
+| Core Usage Scenario | Prepare for specific role interviews; refine answers before interview; review mock interview recordings |
+| Key Behaviors | Generate questions → practice answers → iterate; use AI for polishing; prepare the night before or morning of interview |
+| Core Needs | Role-specific, scenario-based questions; actionable feedback with reasoning; realistic interview simulation with follow-up probing |
+| Pain Points / Complaints | Feedback too generic (6/9); AI ignores personal background (4/9); can't simulate real interviewer pressure (5/9); suggestions feel templated, not authentic |
+| Unmet Expectations | AI should act like a real interviewer: context-aware, able to probe deeper, and provide trustworthy, actionable feedback (7/9) |
+
+*Full survey data: see `questionnaire.pdf`*
 
 ---
 
@@ -125,7 +152,7 @@ Kevin graduated six months ago and has been applying to tech companies across Ho
 
 #### Why This Persona?
 
-Kevin represents our primary user segment: fresh graduates in tech-facing roles who are actively interviewing and need AI-assisted preparation that is **trustworthy, contextual, and iterative**.
+Kevin represents our primary user segment: fresh graduates in tech-facing roles who are actively interviewing and need AI-assisted preparation that is **trustworthy, contextual, and iterative**. This persona is grounded in our survey of 9 CS fresh graduates.
 
 ---
 

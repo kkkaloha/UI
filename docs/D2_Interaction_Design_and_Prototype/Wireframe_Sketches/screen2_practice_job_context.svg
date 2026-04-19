@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<style>text{font-family:Helvetica,Arial,sans-serif;}</style>
+<rect width="800" height="500" fill="#fff" stroke="#999" stroke-width="1"/>
+<line x1="0" y1="30" x2="800" y2="30" stroke="#333" stroke-width="1"/>
+<text x="15" y="20" font-size="12" fill="#333">InterviewAI</text>
+<line x1="140" y1="30" x2="140" y2="500" stroke="#333" stroke-width="1"/>
+<text x="70" y="55" text-anchor="middle" font-size="11" fill="#999">  Dashboard</text>
+<text x="70" y="83" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">▸ Practice</text>
+<text x="70" y="111" text-anchor="middle" font-size="11" fill="#999">  Review</text>
+<text x="70" y="139" text-anchor="middle" font-size="11" fill="#999">  History</text>
+<text x="70" y="167" text-anchor="middle" font-size="11" fill="#999">  Settings</text>
+<text x="160" y="50" font-size="10" fill="#999">Practice &#x3E; Job Context</text>
+<text x="160" y="75" font-size="11" fill="#333">Job Title</text>
+<rect x="160" y="82" width="620" height="28" fill="none" stroke="#333" stroke-width="1"/>
+<text x="170" y="100" font-size="10" fill="#666">Front-end Developer</text>
+<text x="160" y="130" font-size="11" fill="#333">Job Description</text>
+<rect x="160" y="137" width="620" height="50" fill="none" stroke="#333" stroke-width="1"/>
+<text x="170" y="165" font-size="10" fill="#ccc">Paste JD text here...</text>
+<text x="160" y="207" font-size="11" fill="#333">Resume</text>
+<rect x="160" y="214" width="620" height="30" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="5,3"/>
+<text x="470" y="233" text-anchor="middle" font-size="10" fill="#666">Upload PDF or drag and drop</text>
+<text x="160" y="270" font-size="11" fill="#333">Parsed Summary</text>
+<rect x="160" y="277" width="620" height="65" fill="none" stroke="#333" stroke-width="1"/>
+<text x="175" y="297" font-size="10" fill="#333">Role: React Developer</text>
+<text x="175" y="315" font-size="10" fill="#333">Key Skills: React, TypeScript, Node.js</text>
+<text x="175" y="333" font-size="10" fill="#333">Experience: 2 internships</text>
+<rect x="620" y="370" width="160" height="28" fill="none" stroke="#333" stroke-width="1"/>
+<text x="700" y="388" text-anchor="middle" font-size="10" fill="#333">Next &#x2192; Generate</text>
+<text x="400" y="480" text-anchor="middle" font-size="9" fill="#bbb">Screen 2: Practice - Job Context</text>
+</svg>

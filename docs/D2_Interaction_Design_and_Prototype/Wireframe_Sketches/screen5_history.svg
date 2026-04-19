@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+<style>text{font-family:Helvetica,Arial,sans-serif;}</style>
+<rect width="800" height="500" fill="#fff" stroke="#999" stroke-width="1"/>
+<line x1="0" y1="30" x2="800" y2="30" stroke="#333" stroke-width="1"/>
+<text x="15" y="20" font-size="12" fill="#333">InterviewAI</text>
+<line x1="140" y1="30" x2="140" y2="500" stroke="#333" stroke-width="1"/>
+<text x="70" y="55" text-anchor="middle" font-size="11" fill="#999">  Dashboard</text>
+<text x="70" y="83" text-anchor="middle" font-size="11" fill="#999">  Practice</text>
+<text x="70" y="111" text-anchor="middle" font-size="11" fill="#999">  Review</text>
+<text x="70" y="139" text-anchor="middle" font-size="11" fill="#333" font-weight="bold">▸ History</text>
+<text x="70" y="167" text-anchor="middle" font-size="11" fill="#999">  Settings</text>
+<text x="160" y="50" font-size="13" fill="#333" font-weight="bold">History</text>
+<rect x="160" y="60" width="50" height="20" fill="#ccc" stroke="#333" stroke-width="1"/>
+<text x="185" y="74" text-anchor="middle" font-size="9" fill="#333">All</text>
+<rect x="215" y="60" width="65" height="20" fill="none" stroke="#333" stroke-width="1"/>
+<text x="247" y="74" text-anchor="middle" font-size="9" fill="#333">Practice</text>
+<rect x="285" y="60" width="55" height="20" fill="none" stroke="#333" stroke-width="1"/>
+<text x="312" y="74" text-anchor="middle" font-size="9" fill="#333">Review</text>
+<text x="175" y="105" font-size="11" fill="#333" font-weight="bold">Score Trends</text>
+<rect x="160" y="115" width="620" height="80" fill="none" stroke="#333" stroke-width="1"/>
+<text x="175" y="136" font-size="9" fill="#666">Structure</text>
+<rect x="245" y="128" width="200" height="10" fill="#ccc" stroke="#333" stroke-width="0.5"/>
+<text x="175" y="154" font-size="9" fill="#666">Depth</text>
+<rect x="245" y="146" width="100" height="10" fill="#ccc" stroke="#333" stroke-width="0.5"/>
+<text x="175" y="172" font-size="9" fill="#666">Relevance</text>
+<rect x="245" y="164" width="175" height="10" fill="#ccc" stroke="#333" stroke-width="0.5"/>
+<text x="175" y="190" font-size="9" fill="#666">Clarity</text>
+<rect x="245" y="182" width="150" height="10" fill="#ccc" stroke="#333" stroke-width="0.5"/>
+<text x="175" y="220" font-size="11" fill="#333" font-weight="bold">Past Sessions</text>
+<rect x="160" y="230" width="620" height="100" fill="none" stroke="#333" stroke-width="1"/>
+<text x="175" y="250" font-size="10" fill="#333">React Dev Practice</text>
+<text x="580" y="250" font-size="10" fill="#666">Apr 16</text>
+<text x="740" y="250" font-size="10" fill="#333" text-anchor="end">7/10</text>
+<line x1="175" y1="257" x2="760" y2="257" stroke="#eee" stroke-width="1"/>
+<text x="175" y="272" font-size="10" fill="#333">System Design</text>
+<text x="580" y="272" font-size="10" fill="#666">Apr 14</text>
+<text x="740" y="272" font-size="10" fill="#333" text-anchor="end">5/10</text>
+<line x1="175" y1="279" x2="760" y2="279" stroke="#eee" stroke-width="1"/>
+<text x="175" y="294" font-size="10" fill="#333">Behavioral Qs</text>
+<text x="580" y="294" font-size="10" fill="#666">Apr 12</text>
+<text x="740" y="294" font-size="10" fill="#333" text-anchor="end">8/10</text>
+<line x1="175" y1="301" x2="760" y2="301" stroke="#eee" stroke-width="1"/>
+<text x="175" y="316" font-size="10" fill="#333">React Dev Practice</text>
+<text x="580" y="316" font-size="10" fill="#666">Apr 10</text>
+<text x="740" y="316" font-size="10" fill="#333" text-anchor="end">6/10</text>
+<text x="175" y="365" font-size="11" fill="#333" font-weight="bold">Recommendation</text>
+<rect x="160" y="375" width="620" height="55" fill="none" stroke="#333" stroke-width="1"/>
+<text x="175" y="397" font-size="10" fill="#333">Technical Depth is below target.</text>
+<text x="175" y="415" font-size="9" fill="#666">Focus on system design and deep tech Qs.</text>
+<rect x="640" y="405" width="120" height="18" fill="none" stroke="#333" stroke-width="1"/>
+<text x="700" y="418" text-anchor="middle" font-size="9" fill="#333">Start Focused Session</text>
+<text x="400" y="480" text-anchor="middle" font-size="9" fill="#bbb">Screen 5: History</text>
+</svg>
