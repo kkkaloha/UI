@@ -204,7 +204,7 @@ This section documents all three design iterations performed between prototype v
 
 **User experience consequence:** Users opened questions in arbitrary order and lost track of their practice coverage. Think-aloud participants asked "wait, did I already do this one?" and could not identify which questions needed the most work.
 
-![](./figures/before1.png)
+![](./before1.png)
 
 #### Design Decision
 
@@ -218,7 +218,7 @@ The evaluation finding was that the question page acted only as a launcher, not 
 - Each card provides **quick actions**: Start Answer, Favourite / Unfavourite, Mark Weak, Skip / Restore, Regenerate This.
 - A **"Continue Current"** shortcut lets users instantly return to the active question without searching.
 
-![](./figures/after1.png)
+![](./after1.png)
 
 #### Outcome
 
@@ -242,7 +242,7 @@ The evaluation finding was that the question page acted only as a launcher, not 
 
 **User experience consequence:** All three think-aloud participants submitted answers and only discovered structural gaps (missing Result, no quantified impact) after the fact. Average re-submissions per question: 2.3. Participants described the experience as "guessing whether my answer is good enough" and "feels like a test with no hints."
 
-![](./figures/before2.png)
+![](./before2.png)
 
 #### Design Decision
 
@@ -263,7 +263,7 @@ Shift the AI from a post-hoc judge to an in-process coach — consistent with th
 - A **Save Draft** button was added so users can preserve progress without submitting.
 - After submission, the question's status in the question bank updates to "Completed" automatically.
 
-![](./figures/after2.png)
+![](./after2.png)
 
 #### Outcome
 
@@ -292,7 +292,7 @@ Shift the AI from a post-hoc judge to an in-process coach — consistent with th
 
 **User experience consequence:** History functioned as a storage drawer rather than a reflection tool. Think-aloud participants clicked into History, glanced at a list, and navigated away within 15 seconds — the page did not support any actionable insight.
 
-![](./figures/before3.png)
+![](./before3.png)
 
 #### Design Decision
 
@@ -307,7 +307,7 @@ Transform History from a passive archive into an active reflection tool that clo
 - A **Comparison Studio panel** was added, comparing two sessions across four dimensions (overall score, STAR structure, Clarity, Role Relevance) with earlier and later answer highlights and a "next drill" recommendation.
 - A **"Practice Similar Gap"** button was added so users can return from History directly to a Practice session pre-loaded with the identified weak area.
 
-![](./figures/after3.png)
+![](./after3.png)
 
 #### Outcome
 
