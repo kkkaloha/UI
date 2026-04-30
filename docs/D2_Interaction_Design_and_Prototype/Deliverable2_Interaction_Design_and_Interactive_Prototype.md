@@ -141,6 +141,20 @@ These requirements also **reinforce D1**: users who doubt AI reliability (see §
 | **≥ Two system failure interface solutions** | *Prototype*: modals for **voice recognition failed** and **AI generation error** (with fallbacks/retry). |
 | **≥ One mechanism communicating limitations** | Confidence indicators; low-confidence copy; **audio quality** warning on extraction. |
 
+### 5.1 Capability Boundaries in the Written Report / 书面报告中的系统能力边界
+
+To satisfy the Track A requirement that the team **clearly define the intelligent system's capability boundaries**, this report states the same boundary information in the written deliverable, rather than relying only on the explanatory tabs of the HTML prototype. The interactive prototype is mainly used to demonstrate the core task workflow; therefore, the written report must also remain self-contained and assessable.
+
+为满足 Track A 对“明确界定智能系统能力边界”的要求，本报告将系统能力边界直接写入书面交付物，而不是仅依赖 HTML 原型中的说明性标签页。由于原型主要用于展示核心任务流程，书面报告本身也必须具备完整的评审信息。
+
+| Boundary type / 边界类型 | Statement / 能力边界说明 | Rationale / 设计理由 |
+|--------------------------|--------------------------|----------------------|
+| **Can / 能做** | The system can evaluate answer **structure**, **logical flow**, **expression clarity**, and **STAR framework usage**.<br>系统可以评估回答的**结构**、**逻辑流程**、**表达清晰度**以及 **STAR 框架使用情况**。 | These are observable communication qualities that directly support the D1 interview-preparation task.<br>这些属于可观察的表达质量，直接服务于 D1 中定义的面试准备任务。 |
+| **Can / 能做** | The system can generate **role-relevant interview questions** based on job-description keywords and resume context.<br>系统可以基于职位描述关键词和简历上下文生成**与岗位相关的面试问题**。 | This supports personalised practice while staying within the information provided by the user.<br>这可以支持个性化练习，同时不超出用户提供的信息范围。 |
+| **Cannot / 不能做** | The system cannot judge **industry-specific technical depth** or verify domain expertise.<br>系统不能判断**行业特定技术深度**，也不能验证用户的领域专业能力。 | Such judgement requires expert human assessment and may depend on company-specific standards.<br>此类判断需要专家级人工评估，并可能依赖具体公司的评价标准。 |
+| **Cannot / 不能做** | The system cannot replace real interviewer judgement or **guarantee interview outcomes**.<br>系统不能替代真实面试官的判断，也不能**保证面试结果**。 | D1 defines the AI as a support tool for preparation, not as the final decision-maker.<br>D1 将 AI 定义为面试准备的辅助工具，而不是最终决策者。 |
+| **Limited / 受限** | Voice and speech-analysis accuracy depends on **audio quality**, accent, noise, and recording conditions.<br>语音与口语分析的准确性会受到**音频质量**、口音、噪音和录制条件影响。 | This limitation explains why the interface provides low-confidence warnings and fallback text input.<br>该限制解释了为什么界面需要提供低置信度提示和文本输入兜底方案。 |
+
 ---
 
 ## 6. Alignment with “Interaction Design & Prototype Quality” (§V)
