@@ -1,28 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="960">
-
-  <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
-    .t { fill: #111827; font-size: 14px; }
-    .st { fill: #6b7280; font-size: 11px; }
-    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
-    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
-  </style>
-
-
-  <defs>
-    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
-    </marker>
-    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
-    </marker>
-    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
-    </marker>
-  </defs>
-
-<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
-<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-6 — Key prototype screens (core path)</text>
-<text x="480" y="58" text-anchor="middle" class="st">Prototype tab — core path (left to right)</text>
-<rect x="40" y="100" width="160" height="100" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="120" y="145" text-anchor="middle" class="sub">Dashboard</text><text x="120" y="168" text-anchor="middle" class="st">entry</text><line x1="200" y1="150" x2="215" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/><rect x="215" y="100" width="160" height="100" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="295" y="145" text-anchor="middle" class="sub">Practice</text><text x="295" y="168" text-anchor="middle" class="st">job→resume</text><line x1="375" y1="150" x2="390" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/><rect x="390" y="100" width="160" height="100" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="470" y="145" text-anchor="middle" class="sub">Questions</text><text x="470" y="168" text-anchor="middle" class="st">AI list</text><line x1="550" y1="150" x2="565" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/><rect x="565" y="100" width="160" height="100" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="645" y="145" text-anchor="middle" class="sub">Answer</text><text x="645" y="168" text-anchor="middle" class="st">text/voice</text><line x1="725" y1="150" x2="740" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/><rect x="740" y="100" width="160" height="100" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="820" y="145" text-anchor="middle" class="sub">Feedback</text><text x="820" y="168" text-anchor="middle" class="st">scores</text><text x="480" y="240" text-anchor="middle" class="st">High-fidelity click-through · index.html Prototype tab</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+<style>
+text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+.title { fill:#111827; font-size:20px; font-weight:600; }
+.subtitle { fill:#6b7280; font-size:12px; }
+.label { fill:#111827; font-size:13px; font-weight:600; }
+.small { fill:#6b7280; font-size:11px; }
+.tiny { fill:#6b7280; font-size:10px; }
+</style>
+<defs>
+<marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#2563eb"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16a34a"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#dc2626"/></marker>
+</defs>
+<rect width="1200" height="500" fill="#ffffff"/>
+<text x="600" y="34" text-anchor="middle" class="title">Figure D2-6 — Tab-3 Interactive Prototype Coverage</text>
+<text x="600" y="56" text-anchor="middle" class="subtitle">The submitted prototype evidence is the Prototype tab only; specification and flows are documented in this report</text>
+<rect x="500" y="88" width="200" height="52" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+<text x="600" y="119" text-anchor="middle" class="label">Dashboard</text>
+<rect x="120" y="190" width="110" height="48" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<text x="175" y="218" text-anchor="middle" class="label">Job/JD</text>
+<rect x="260" y="190" width="110" height="48" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<text x="315" y="218" text-anchor="middle" class="label">Resume</text>
+<line x1="230" y1="214" x2="260" y2="214" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="400" y="190" width="110" height="48" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<text x="455" y="218" text-anchor="middle" class="label">Questions</text>
+<line x1="370" y1="214" x2="400" y2="214" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="540" y="190" width="110" height="48" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<text x="595" y="218" text-anchor="middle" class="label">Answer</text>
+<line x1="510" y1="214" x2="540" y2="214" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="680" y="190" width="110" height="48" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+<text x="735" y="218" text-anchor="middle" class="label">Feedback</text>
+<line x1="650" y1="214" x2="680" y2="214" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<line x1="560" y1="140" x2="175" y2="190" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="260" y="310" width="110" height="48" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="315" y="338" text-anchor="middle" class="label">Upload</text>
+<rect x="400" y="310" width="110" height="48" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="455" y="338" text-anchor="middle" class="label">Extract</text>
+<line x1="370" y1="334" x2="400" y2="334" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="540" y="310" width="110" height="48" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="595" y="338" text-anchor="middle" class="label">Edit Q&amp;A</text>
+<line x1="510" y1="334" x2="540" y2="334" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="680" y="310" width="110" height="48" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+<text x="735" y="338" text-anchor="middle" class="label">Summary</text>
+<line x1="650" y1="334" x2="680" y2="334" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<line x1="640" y1="140" x2="315" y2="310" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="870" y="190" width="120" height="48" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<text x="930" y="218" text-anchor="middle" class="label">History</text>
+<rect x="1010" y="190" width="120" height="48" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
+<text x="1070" y="218" text-anchor="middle" class="label">Settings</text>
+<rect x="870" y="310" width="120" height="48" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+<text x="930" y="338" text-anchor="middle" class="label">Fault modals</text>
+<rect x="1010" y="310" width="120" height="48" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<text x="1070" y="338" text-anchor="middle" class="label">Confidence cues</text>
+<line x1="790" y1="214" x2="870" y2="214" stroke="#16a34a" stroke-width="1.6" fill="none" marker-end="url(#arrow-green)"/>
+<line x1="790" y1="334" x2="870" y2="334" stroke="#dc2626" stroke-width="1.6" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<line x1="930" y1="334" x2="1010" y2="334" stroke="#16a34a" stroke-width="1.6" fill="none" marker-end="url(#arrow-green)"/>
+<text x="395" y="270" text-anchor="middle" class="small">Practice core path</text>
+<text x="485" y="390" text-anchor="middle" class="small">Review core path</text>
+<text x="930" y="270" text-anchor="middle" class="small">Global + Track A patterns</text>
+<line x1="80" y1="460" x2="110" y2="460" stroke="#2563eb" stroke-width="1.6" fill="none" marker-end="url(#arrow-blue)"/>
+<text x="120" y="464" text-anchor="start" class="tiny">Primary click-through path</text>
+<line x1="285" y1="460" x2="315" y2="460" stroke="#dc2626" stroke-width="1.6" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<text x="325" y="464" text-anchor="start" class="tiny">Simulated failure UI</text>
+<line x1="505" y1="460" x2="535" y2="460" stroke="#16a34a" stroke-width="1.6" fill="none" marker-end="url(#arrow-green)"/>
+<text x="545" y="464" text-anchor="start" class="tiny">Saved state / trust signal</text>
 </svg>

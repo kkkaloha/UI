@@ -1,27 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960">
-
-  <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
-    .t { fill: #111827; font-size: 14px; }
-    .st { fill: #6b7280; font-size: 11px; }
-    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
-    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
-  </style>
-
-
-  <defs>
-    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
-    </marker>
-    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
-    </marker>
-    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
-    </marker>
-  </defs>
-
-<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
-<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-4 — Practice workflow (simplified)</text>
-<rect x="400" y="70" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="92" text-anchor="middle" class="sub">Start</text><line x1="480" y1="114" x2="480" y2="130" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="130" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="152" text-anchor="middle" class="sub">Job / JD input</text><text x="480.0" y="172" text-anchor="middle" class="st">validate</text><line x1="480" y1="174" x2="480" y2="190" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="190" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="212" text-anchor="middle" class="sub">Resume upload</text><text x="480.0" y="232" text-anchor="middle" class="st">file OK?</text><line x1="480" y1="234" x2="480" y2="250" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="250" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="272" text-anchor="middle" class="sub">AI questions</text><text x="480.0" y="292" text-anchor="middle" class="st">network / AI OK?</text><line x1="480" y1="294" x2="480" y2="310" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="310" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="332" text-anchor="middle" class="sub">Answer</text><text x="480.0" y="352" text-anchor="middle" class="st">text or voice</text><line x1="480" y1="354" x2="480" y2="370" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="370" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="392" text-anchor="middle" class="sub">AI evaluation</text><text x="480.0" y="412" text-anchor="middle" class="st">scores + confidence</text><line x1="480" y1="414" x2="480" y2="430" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="430" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="452" text-anchor="middle" class="sub">User control</text><text x="480.0" y="472" text-anchor="middle" class="st">flag / override / undo</text><line x1="480" y1="474" x2="480" y2="490" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrB)"/><rect x="400" y="490" width="160" height="44" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/><text x="480.0" y="512" text-anchor="middle" class="sub">Next Q or Save</text><text x="480.0" y="532" text-anchor="middle" class="st">→ Dashboard</text><rect x="620" y="250" width="140" height="100" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/><text x="690" y="278" text-anchor="middle" class="sub">Exceptions</text><text x="690" y="300" text-anchor="middle" class="st">Invalid file</text><text x="690" y="318" text-anchor="middle" class="st">Network / AI error</text><text x="690" y="336" text-anchor="middle" class="st">Voice → text fallback</text><path d="M 560 270 L 620 290" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arrR)"/><text x="480" y="560" text-anchor="middle" class="st">Practice journey — happy path (centre) · recovery (right)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" width="1200" height="860">
+<style>
+text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+.title { fill:#111827; font-size:20px; font-weight:600; }
+.subtitle { fill:#6b7280; font-size:12px; }
+.label { fill:#111827; font-size:13px; font-weight:600; }
+.small { fill:#6b7280; font-size:11px; }
+.tiny { fill:#6b7280; font-size:10px; }
+.cell { fill:#111827; font-size:12px; }
+</style>
+<defs>
+<marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#2563eb"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#dc2626"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16a34a"/></marker>
+<marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#9333ea"/></marker>
+</defs>
+<rect width="1200" height="860" fill="#ffffff"/>
+<text x="600" y="34" text-anchor="middle" class="title">Figure D2-4 — Practice Workflow with Feedback and Recovery</text>
+<text x="600" y="56" text-anchor="middle" class="subtitle">End-to-end flow: JD/resume context → questions → answer → feedback → save or repeat</text>
+<rect x="520" y="80" width="170" height="46" rx="8" fill="#eff6ff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="107" text-anchor="middle" class="label">Dashboard</text>
+<rect x="520" y="150" width="170" height="46" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="177" text-anchor="middle" class="label">Job/JD input</text>
+<line x1="605" y1="126" x2="605" y2="150" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="220" width="170" height="46" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="247" text-anchor="middle" class="label">Resume upload</text>
+<line x1="605" y1="196" x2="605" y2="220" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="290" width="170" height="46" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="317" text-anchor="middle" class="label">Generate questions</text>
+<line x1="605" y1="266" x2="605" y2="290" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="360" width="170" height="46" rx="8" fill="#eff6ff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="387" text-anchor="middle" class="label">Question list</text>
+<line x1="605" y1="336" x2="605" y2="360" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="430" width="170" height="46" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="457" text-anchor="middle" class="label">Answer page</text>
+<line x1="605" y1="406" x2="605" y2="430" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="500" width="170" height="46" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="527" text-anchor="middle" class="label">AI evaluation</text>
+<line x1="605" y1="476" x2="605" y2="500" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="570" width="170" height="46" rx="8" fill="#eff6ff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="597" text-anchor="middle" class="label">Feedback + controls</text>
+<line x1="605" y1="546" x2="605" y2="570" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="520" y="640" width="170" height="46" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+<text x="605" y="667" text-anchor="middle" class="label">Next / Save</text>
+<line x1="605" y1="616" x2="605" y2="640" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<rect x="270" y="150" width="170" height="46" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="355" y="170" text-anchor="middle" class="small">Required fields</text>
+<text x="355" y="186" text-anchor="middle" class="tiny">show inline errors</text>
+<line x1="440" y1="173" x2="520" y2="173" stroke="#6b7280" stroke-width="1" fill="none" marker-end="url(#arrow-blue)" stroke-dasharray="4 2"/>
+<rect x="270" y="220" width="170" height="46" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="355" y="240" text-anchor="middle" class="small">File type check</text>
+<text x="355" y="256" text-anchor="middle" class="tiny">PDF/DOC accepted</text>
+<line x1="440" y1="243" x2="520" y2="243" stroke="#6b7280" stroke-width="1" fill="none" marker-end="url(#arrow-blue)" stroke-dasharray="4 2"/>
+<rect x="270" y="290" width="170" height="46" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="355" y="310" text-anchor="middle" class="small">Loading state</text>
+<text x="355" y="326" text-anchor="middle" class="tiny">with retry affordance</text>
+<line x1="440" y1="313" x2="520" y2="313" stroke="#6b7280" stroke-width="1" fill="none" marker-end="url(#arrow-blue)" stroke-dasharray="4 2"/>
+<rect x="270" y="430" width="170" height="46" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="355" y="450" text-anchor="middle" class="small">Draft autosaved</text>
+<text x="355" y="466" text-anchor="middle" class="tiny">before submit</text>
+<line x1="440" y1="453" x2="520" y2="453" stroke="#6b7280" stroke-width="1" fill="none" marker-end="url(#arrow-blue)" stroke-dasharray="4 2"/>
+<rect x="270" y="500" width="170" height="46" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="355" y="520" text-anchor="middle" class="small">Score + rationale</text>
+<text x="355" y="536" text-anchor="middle" class="tiny">+ confidence</text>
+<line x1="440" y1="523" x2="520" y2="523" stroke="#6b7280" stroke-width="1" fill="none" marker-end="url(#arrow-blue)" stroke-dasharray="4 2"/>
+<rect x="830" y="150" width="250" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="955" y="170" text-anchor="middle" class="label">Invalid context</text>
+<text x="955" y="188" text-anchor="middle" class="small">Explain missing JD / role</text>
+<text x="955" y="202" text-anchor="middle" class="tiny">Return to edit form</text>
+<line x1="690" y1="179" x2="830" y2="179" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<rect x="830" y="220" width="250" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="955" y="240" text-anchor="middle" class="label">Invalid resume</text>
+<text x="955" y="258" text-anchor="middle" class="small">Show accepted formats</text>
+<text x="955" y="272" text-anchor="middle" class="tiny">Replace file or skip</text>
+<line x1="690" y1="249" x2="830" y2="249" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<rect x="830" y="290" width="250" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="955" y="310" text-anchor="middle" class="label">AI generation error</text>
+<text x="955" y="328" text-anchor="middle" class="small">Retry or use general bank</text>
+<text x="955" y="342" text-anchor="middle" class="tiny">Question list still opens</text>
+<line x1="690" y1="319" x2="830" y2="319" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<rect x="830" y="430" width="250" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="955" y="450" text-anchor="middle" class="label">Voice recognition fails</text>
+<text x="955" y="468" text-anchor="middle" class="small">Preserve partial transcript</text>
+<text x="955" y="482" text-anchor="middle" class="tiny">Switch to text input</text>
+<line x1="690" y1="459" x2="830" y2="459" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<rect x="830" y="570" width="250" height="58" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="955" y="590" text-anchor="middle" class="label">Low confidence</text>
+<text x="955" y="608" text-anchor="middle" class="small">Boundary banner displayed</text>
+<text x="955" y="622" text-anchor="middle" class="tiny">User verifies manually</text>
+<line x1="690" y1="599" x2="830" y2="599" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<path d="M 690 663 L 820 663 L 820 735 L 690 735" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+<rect x="520" y="720" width="170" height="46" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+<text x="605" y="747" text-anchor="middle" class="label">History record</text>
+<line x1="605" y1="686" x2="605" y2="720" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+<path d="M 520 663 L 410 663 L 410 383 L 520 383" stroke="#9333ea" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+<rect x="365" y="515" width="100" height="18" rx="4" fill="#ffffff" opacity="0.95"/>
+<text x="415" y="528" text-anchor="middle" class="tiny">repeat practice</text>
+<line x1="55" y1="815" x2="85" y2="815" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arrow-blue)"/>
+<text x="95" y="819" text-anchor="start" class="tiny">Primary page jump</text>
+<line x1="230" y1="815" x2="260" y2="815" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<text x="270" y="819" text-anchor="start" class="tiny">Exception recovery</text>
+<line x1="425" y1="815" x2="455" y2="815" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+<text x="465" y="819" text-anchor="start" class="tiny">Save / learning loop</text>
 </svg>

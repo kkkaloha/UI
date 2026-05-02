@@ -1,47 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960">
-
-  <style>
-    text { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", sans-serif; }
-    .t { fill: #111827; font-size: 14px; }
-    .st { fill: #6b7280; font-size: 11px; }
-    .ttl { fill: #111827; font-size: 18px; font-weight: 600; }
-    .sub { fill: #111827; font-size: 13px; font-weight: 600; }
-  </style>
-
-
-  <defs>
-    <marker id="arrB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
-    </marker>
-    <marker id="arrR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
-    </marker>
-    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
-    </marker>
-  </defs>
-
-<rect width="10000" height="10000" x="-5000" y="-5000" fill="#ffffff"/>
-<text x="480" y="36" text-anchor="middle" class="ttl">Figure D2-7 — Failure UI &amp; limitations (Track A)</text>
-
-<text x="480" y="52" text-anchor="middle" class="st">Track A — failure handling &amp; limitation communication</text>
-<!-- banner -->
-<rect x="40" y="75" width="880" height="40" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
-<text x="60" y="100" class="t">Limitation banner: AI evaluates structure / expression — not domain depth or interviewer intent</text>
-<!-- modals -->
-<rect x="80" y="150" width="360" height="160" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
-<text x="260" y="185" text-anchor="middle" class="sub">Voice recognition failed</text>
-<text x="260" y="215" text-anchor="middle" class="st">Fallback: switch to text · progress kept</text>
-<text x="260" y="245" text-anchor="middle" class="st">Actions: Retry voice · Use text</text>
-
-<rect x="520" y="150" width="360" height="160" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
-<text x="700" y="185" text-anchor="middle" class="sub">AI generation error</text>
-<text x="700" y="215" text-anchor="middle" class="st">Fallback: general question bank</text>
-<text x="700" y="245" text-anchor="middle" class="st">Actions: Retry · Use general Qs</text>
-
-<!-- confidence -->
-<rect x="200" y="340" width="560" height="56" rx="8" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-<text x="480" y="365" text-anchor="middle" class="sub">Confidence &amp; low-audio warning (extraction / scoring)</text>
-<text x="480" y="385" text-anchor="middle" class="st">Progress bar · “55% — reduced due to audio quality” (example)</text>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680">
+<style>
+text { font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+.title { fill:#111827; font-size:20px; font-weight:600; }
+.subtitle { fill:#6b7280; font-size:12px; }
+.label { fill:#111827; font-size:13px; font-weight:600; }
+.small { fill:#6b7280; font-size:11px; }
+.tiny { fill:#6b7280; font-size:10px; }
+.cell { fill:#111827; font-size:12px; }
+</style>
+<defs>
+<marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#2563eb"/></marker>
+<marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#dc2626"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16a34a"/></marker>
+<marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#9333ea"/></marker>
+</defs>
+<rect width="1200" height="680" fill="#ffffff"/>
+<text x="600" y="34" text-anchor="middle" class="title">Figure D2-7 — Track A Compliance Evidence in Report and Tab-3 Prototype</text>
+<text x="600" y="56" text-anchor="middle" class="subtitle">Capability boundaries, user control, failure handling, and limitation communication are explicitly designed</text>
+<rect x="70" y="100" width="490" height="220" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.8"/>
+<text x="315" y="132" text-anchor="middle" class="label">1. Capability boundaries</text>
+<rect x="105" y="147" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="165" text-anchor="start" class="small">Can: assess structure, clarity, STAR use</text>
+<rect x="105" y="185" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="203" text-anchor="start" class="small">Can: generate JD/resume-based questions</text>
+<rect x="105" y="223" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="241" text-anchor="start" class="small">Cannot: verify domain expertise or outcomes</text>
+<rect x="105" y="261" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="279" text-anchor="start" class="small">Limited: voice analysis depends on audio quality</text>
+<rect x="640" y="100" width="490" height="220" rx="12" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.8"/>
+<text x="885" y="132" text-anchor="middle" class="label">2. User control</text>
+<rect x="675" y="147" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="165" text-anchor="start" class="small">Flag inaccurate feedback</text>
+<rect x="675" y="185" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="203" text-anchor="start" class="small">Override scores manually</text>
+<rect x="675" y="223" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="241" text-anchor="start" class="small">Undo actions and discard evaluations</text>
+<rect x="675" y="261" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="279" text-anchor="start" class="small">Confirm sensitive settings/actions</text>
+<rect x="70" y="380" width="490" height="220" rx="12" fill="#fef2f2" stroke="#fecaca" stroke-width="1.8"/>
+<text x="315" y="412" text-anchor="middle" class="label">3. Failure solutions</text>
+<rect x="105" y="427" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="445" text-anchor="start" class="small">Voice failure → preserve partial text</text>
+<rect x="105" y="465" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="483" text-anchor="start" class="small">AI generation error → retry or general bank</text>
+<rect x="105" y="503" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="521" text-anchor="start" class="small">Extraction failure → manual Q&amp;A form</text>
+<rect x="105" y="541" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="125" y="559" text-anchor="start" class="small">Invalid file → explain format and re-upload</text>
+<rect x="640" y="380" width="490" height="220" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.8"/>
+<text x="885" y="412" text-anchor="middle" class="label">4. Limitation communication</text>
+<rect x="675" y="427" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="445" text-anchor="start" class="small">Confidence bars beside AI outputs</text>
+<rect x="675" y="465" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="483" text-anchor="start" class="small">Low-confidence warning copy</text>
+<rect x="675" y="503" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="521" text-anchor="start" class="small">Audio-quality warning in Review</text>
+<rect x="675" y="541" width="420" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+<text x="695" y="559" text-anchor="start" class="small">Boundary banner before accepting scores</text>
+<path d="M 560 210 C 600 210 600 210 640 210" stroke="#9333ea" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+<rect x="570" y="199" width="60" height="18" rx="4" fill="#ffffff" opacity="0.95"/>
+<text x="600" y="212" text-anchor="middle" class="tiny">agency</text>
+<path d="M 315 320 C 315 350 315 350 315 380" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<path d="M 885 320 C 885 350 885 350 885 380" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+<line x1="70" y1="650" x2="100" y2="650" stroke="#9333ea" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+<text x="110" y="654" text-anchor="start" class="tiny">Control link</text>
+<line x1="245" y1="650" x2="275" y2="650" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#arrow-red)" stroke-dasharray="5 3"/>
+<text x="285" y="654" text-anchor="start" class="tiny">Failure recovery</text>
+<line x1="445" y1="650" x2="475" y2="650" stroke="#16a34a" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+<text x="485" y="654" text-anchor="start" class="tiny">Limitation signal</text>
 </svg>
