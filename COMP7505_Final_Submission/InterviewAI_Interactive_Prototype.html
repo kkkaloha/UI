@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Interview Prep - Interaction Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+:root{--p1:#9B8E9E;--p2:#857888;--p3:#A89BAC;--bg1:#F2EDED;--bg2:#EBE4E1;--bg3:#D5CBC6;--t1:#3D3535;--t2:#5C5252;--t3:#8A7F7F;--ok:#8CAE9E;--warn:#C4A882;--err:#C48A8A;--info:#8BA7B8;--card:rgba(235,228,225,.92);--glass:rgba(155,142,158,.08);--bdr:rgba(61,53,53,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg1);color:var(--t1);min-height:100vh}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(242,237,237,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);padding:0 2rem;box-shadow:0 1px 8px rgba(61,53,53,.06)}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;height:64px;gap:2rem}
+.nav-logo{display:flex;align-items:center;gap:.75rem;font-weight:700;font-size:1.1rem;white-space:nowrap}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--p1),var(--p3));display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.nav-tabs{display:flex;gap:.25rem;margin-left:2rem}
+.nav-tab{padding:.6rem 1.25rem;border-radius:8px;cursor:pointer;font-size:.875rem;font-weight:500;color:var(--t3);transition:all .3s;border:none;background:0 0;white-space:nowrap;position:relative}
+.nav-tab:hover{color:var(--t1);background:var(--glass)}
+.nav-tab.active{color:var(--t1);background:linear-gradient(135deg,rgba(155,142,158,.18),rgba(168,155,172,.18))}
+.nav-tab.active::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:60%;height:2px;background:linear-gradient(90deg,var(--p1),var(--p3));border-radius:1px}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.65rem;font-weight:600;margin-left:.75rem;background:linear-gradient(135deg,var(--p1),var(--p3));color:#fff}
+.main{margin-top:64px;padding:2rem;max-width:1400px;margin-left:auto;margin-right:auto}
+.tab-panel{display:none;animation:fadeIn .4s ease}.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.sh{margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--bdr)}
+.sh h1{font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,var(--t1),var(--p1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.sh p{color:var(--t3);font-size:.95rem;line-height:1.6}
+.st{font-size:1.25rem;font-weight:700;margin:2.5rem 0 1.25rem;display:flex;align-items:center;gap:.75rem}
+.st .ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.5rem;transition:all .3s;backdrop-filter:blur(10px)}
+.card:hover{border-color:rgba(155,142,158,.35);transform:translateY(-2px);box-shadow:0 8px 32px rgba(155,142,158,.12)}
+.cg3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.cg2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.ci{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+.card h3{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.card p{font-size:.85rem;color:var(--t3);line-height:1.6}
+.ptag{display:inline-block;padding:.25rem .75rem;border-radius:6px;font-size:.75rem;font-weight:600;margin:.25rem .25rem 0 0;background:rgba(155,142,158,.15);color:var(--p1)}
+.mc{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:2rem;overflow-x:auto;margin:1.5rem 0}
+.mermaid{display:flex;justify-content:center}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;border:1px solid var(--bdr)}
+.tbl th{background:rgba(155,142,158,.15);padding:.75rem 1rem;font-size:.8rem;font-weight:600;text-align:left;color:var(--p1);border-bottom:1px solid var(--bdr)}
+.tbl td{padding:.65rem 1rem;font-size:.8rem;color:var(--t2);border-bottom:1px solid var(--bdr);background:rgba(235,228,225,.5)}
+.tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:rgba(155,142,158,.08)}
+.ft{display:flex;gap:.5rem;margin-bottom:1.5rem;background:var(--bg2);border-radius:12px;padding:.35rem;width:fit-content}
+.fb{padding:.6rem 1.5rem;border-radius:10px;border:none;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--t3);background:0 0;transition:all .3s}
+.fb.active{background:linear-gradient(135deg,var(--p1),var(--p3));color:#fff;box-shadow:0 4px 15px rgba(155,142,158,.3)}
+.fp{display:none}.fp.active{display:block;animation:fadeIn .4s}
+.legend{display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.25rem;background:var(--card);border:1px solid var(--bdr);border-radius:12px;margin-top:1.5rem}
+.li{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--t2)}
+.ld{width:14px;height:14px;border-radius:4px}
+.pf{background:var(--bg2);border:2px solid var(--bdr);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(61,53,53,.1);min-height:700px;display:flex}
+.ps{width:240px;background:rgba(235,228,225,.97);border-right:1px solid var(--bdr);padding:1.5rem 0;flex-shrink:0;display:flex;flex-direction:column}
+.psl{padding:0 1.25rem 1.5rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid var(--bdr);margin-bottom:1rem}
+.psl .lc{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--p1),var(--p3));display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.psl span{font-weight:700;font-size:.9rem}
+.sn{flex:1;display:flex;flex-direction:column;gap:.15rem;padding:0 .75rem}
+.si{display:flex;align-items:center;gap:.75rem;padding:.7rem .75rem;border-radius:10px;cursor:pointer;font-size:.85rem;color:var(--t3);transition:all .25s;border:none;background:0 0;width:100%;text-align:left}
+.si:hover{background:var(--glass);color:var(--t1)}
+.si.active{background:linear-gradient(135deg,rgba(155,142,158,.2),rgba(168,155,172,.15));color:var(--t1);font-weight:600}
+.pm{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.sb{background:linear-gradient(90deg,rgba(139,167,184,.15),rgba(155,142,158,.1));border-bottom:1px solid rgba(139,167,184,.2);padding:.6rem 1.5rem;display:flex;align-items:center;gap:.75rem;font-size:.78rem;color:var(--info)}
+.pt{padding:1rem 1.5rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+.bc{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--t3)}
+.bc .cur{color:var(--t1);font-weight:600}
+.pb{flex:1;padding:1.5rem;overflow-y:auto}
+.pp{display:none;animation:slideUp .35s ease}.pp.active{display:block}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border-radius:10px;border:none;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif}
+.bp{background:linear-gradient(135deg,var(--p1),var(--p3));color:#fff}
+.bp:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(155,142,158,.4)}
+.bs{background:var(--glass);color:var(--t2);border:1px solid var(--bdr)}
+.bs:hover{background:rgba(155,142,158,.12);color:var(--t1)}
+.bw{background:rgba(196,168,130,.15);color:var(--warn);border:1px solid rgba(196,168,130,.25)}
+.bd{background:rgba(196,138,138,.15);color:var(--err);border:1px solid rgba(196,138,138,.25)}
+.bsm{padding:.4rem .75rem;font-size:.78rem;border-radius:8px}
+.inf{width:100%;padding:.7rem 1rem;border-radius:10px;border:1px solid var(--bdr);background:rgba(255,255,255,.6);color:var(--t1);font-size:.85rem;font-family:'Inter',sans-serif;transition:border-color .25s}
+.inf:focus{outline:none;border-color:var(--p1)}.inf::placeholder{color:var(--t3)}
+.ta{width:100%;padding:.7rem 1rem;border-radius:10px;border:1px solid var(--bdr);background:rgba(255,255,255,.6);color:var(--t1);font-size:.85rem;font-family:'Inter',sans-serif;resize:vertical;min-height:100px}
+.ta:focus{outline:none;border-color:var(--p1)}
+.il{font-size:.8rem;font-weight:600;color:var(--t2);margin-bottom:.4rem;display:block}
+.uz{border:2px dashed var(--bdr);border-radius:16px;padding:3rem 2rem;text-align:center;cursor:pointer;transition:all .3s;background:rgba(255,255,255,.3)}
+.uz:hover{border-color:var(--p1);background:rgba(155,142,158,.08)}
+.sc{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.25rem;margin-bottom:1rem}
+.cb{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin:.5rem 0}
+.cf{height:100%;border-radius:4px;transition:width .6s ease}
+.tag{display:inline-flex;align-items:center;gap:.25rem;padding:.2rem .6rem;border-radius:6px;font-size:.72rem;font-weight:600}
+.tg{background:rgba(140,174,158,.18);color:var(--ok)}.ty{background:rgba(196,168,130,.18);color:var(--warn)}.tr{background:rgba(196,138,138,.18);color:var(--err)}.tb{background:rgba(139,167,184,.18);color:var(--info)}
+.qc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1.25rem;margin-bottom:.75rem;cursor:pointer;transition:all .25s}
+.qc:hover{border-color:rgba(155,142,158,.35);transform:translateX(4px)}
+.mo{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(61,53,53,.4);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center}
+.mo.show{display:flex}
+.md{background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;padding:2rem;max-width:480px;width:90%;animation:slideUp .3s ease}
+.md h3{font-size:1.1rem;font-weight:700;margin-bottom:.75rem}.md p{font-size:.85rem;color:var(--t3);line-height:1.6;margin-bottom:1rem}
+.stc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1.25rem;text-align:center}
+.stc .sn2{font-size:1.75rem;font-weight:800}.stc .sl{font-size:.78rem;color:var(--t3);margin-top:.25rem}
+.hi{display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:12px;background:var(--card);border:1px solid var(--bdr);margin-bottom:.5rem;transition:all .25s}
+.hi:hover{border-color:rgba(155,142,158,.3)}
+.wh{background:linear-gradient(135deg,rgba(155,142,158,.15),rgba(168,155,172,.1));border:1px solid rgba(155,142,158,.2);border-radius:20px;padding:2.5rem;margin-bottom:2rem}
+.wh h2{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}.wh p{color:var(--t3);font-size:.9rem;max-width:500px}
+.sr{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--bdr)}.sr:last-child{border-bottom:none}
+.tg2{width:44px;height:24px;border-radius:12px;background:var(--bg3);cursor:pointer;position:relative;transition:background .3s;border:none}
+.tg2::after{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:var(--t2);top:3px;left:3px;transition:all .3s}
+.tg2.on{background:var(--p1)}.tg2.on::after{left:23px;background:#fff}
+.slider{-webkit-appearance:none;width:120px;height:6px;border-radius:3px;background:var(--bg3);outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--p1);cursor:pointer}
+.eb{background:rgba(255,255,255,.45);border:1px solid var(--bdr);border-radius:12px;padding:1rem;margin-bottom:.75rem}
+.eb .ebl{font-size:.72rem;font-weight:700;color:var(--p1);text-transform:uppercase;margin-bottom:.4rem}
+.eb .ebt{font-size:.85rem;color:var(--t2);line-height:1.6}
+.q-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.25rem}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:1rem}
+.toolbar-group{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.filter-select,.search-input{padding:.65rem .9rem;border-radius:10px;border:1px solid var(--bdr);background:rgba(255,255,255,.6);color:var(--t1);font-size:.82rem;font-family:'Inter',sans-serif}
+.filter-select:focus,.search-input:focus{outline:none;border-color:var(--p1)}
+.search-input{min-width:220px}
+.q-list,.history-list{display:grid;gap:1rem}
+.question-card{cursor:default}
+.question-card.selected{border-color:rgba(155,142,158,.45);box-shadow:0 12px 32px rgba(155,142,158,.12)}
+.question-top,.record-top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+.question-title{font-size:.95rem;font-weight:600;line-height:1.6;color:var(--t1);margin-top:.35rem}
+.meta-row,.record-meta,.compare-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.meta-pill{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .7rem;border-radius:999px;font-size:.72rem;font-weight:600;background:rgba(155,142,158,.08);color:var(--t2);border:1px solid rgba(61,53,53,.08)}
+.meta-pill.favorite{color:#C4A882;border-color:rgba(196,168,130,.25);background:rgba(196,168,130,.1)}
+.status-pill.ready{background:rgba(139,167,184,.18);color:var(--info)}
+.status-pill.in_progress{background:rgba(155,142,158,.18);color:#7a6e7d}
+.status-pill.completed{background:rgba(140,174,158,.18);color:var(--ok)}
+.status-pill.skipped{background:rgba(138,127,127,.16);color:var(--t3)}
+.question-actions,.answer-actions,.history-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.mini-note{font-size:.78rem;color:var(--t3);line-height:1.6}
+.answer-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.95fr);gap:1.25rem}
+.answer-main,.answer-side{display:grid;gap:1rem}
+.panel-card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.25rem}
+.panel-title{font-size:.95rem;font-weight:700;margin-bottom:.75rem}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.metric-card{background:rgba(255,255,255,.45);border:1px solid var(--bdr);border-radius:14px;padding:1rem}
+.metric-card .value{font-size:1.4rem;font-weight:800}
+.metric-card .label{font-size:.75rem;color:var(--t3);margin-top:.2rem}
+.checklist,.guide-list,.snippet-list,.record-stats{display:grid;gap:.6rem}
+.check-item,.guide-item,.snippet-item,.record-stat{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem .9rem;border-radius:12px;background:rgba(255,255,255,.35);border:1px solid rgba(61,53,53,.06)}
+.guide-item,.snippet-item{align-items:flex-start}
+.guide-item span:last-child,.snippet-item span:last-child{flex:1;font-size:.82rem;color:var(--t2);line-height:1.6}
+.check-label{font-size:.8rem;color:var(--t2)}
+.check-state{font-size:.74rem;font-weight:700}
+.check-state.ok{color:var(--ok)}
+.check-state.warn{color:var(--warn)}
+.coach-chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+.chip-btn{padding:.45rem .8rem;border-radius:999px;border:1px solid rgba(155,142,158,.3);background:rgba(155,142,158,.1);color:#7a6e7d;font-size:.76rem;font-weight:600;cursor:pointer;transition:all .25s}
+.chip-btn:hover{background:rgba(155,142,158,.2)}
+.answer-textarea{min-height:260px}
+.focus-banner{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1rem 1.1rem;border-radius:14px;background:linear-gradient(135deg,rgba(139,167,184,.14),rgba(155,142,158,.08));border:1px solid rgba(139,167,184,.2)}
+.focus-banner strong{display:block;font-size:.84rem}
+.focus-banner span{display:block;font-size:.76rem;color:var(--t3);margin-top:.2rem}
+.history-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.95fr);gap:1.25rem}
+.history-card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.15rem;transition:all .25s}
+.history-card.selected{border-color:rgba(155,142,158,.45);box-shadow:0 10px 28px rgba(155,142,158,.12)}
+.history-card:hover{border-color:rgba(155,142,158,.28)}
+.record-score{font-size:1.5rem;font-weight:800}
+.record-detail{font-size:.78rem;color:var(--t3);margin-top:.25rem}
+.record-stats{margin-top:1rem}
+.mini-bar{height:6px;background:rgba(61,53,53,.08);border-radius:999px;overflow:hidden;margin-top:.35rem}
+.mini-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--p1),var(--p3))}
+.compare-panel{background:linear-gradient(135deg,rgba(155,142,158,.12),rgba(139,167,184,.08));border:1px solid rgba(155,142,158,.22);border-radius:18px;padding:1.25rem}
+.compare-empty{font-size:.82rem;color:var(--t3);line-height:1.7;padding:1rem 0}
+.compare-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin:1rem 0}
+.compare-card{background:rgba(255,255,255,.38);border:1px solid rgba(61,53,53,.06);border-radius:14px;padding:1rem}
+.compare-card .delta{font-size:1.5rem;font-weight:800}
+.compare-card .small{font-size:.76rem;color:var(--t3);margin-top:.2rem}
+.compare-snippets{display:grid;gap:.75rem;margin-top:1rem}
+.empty-state{padding:1.25rem;border-radius:16px;background:rgba(255,255,255,.3);border:1px dashed var(--bdr);font-size:.82rem;color:var(--t3);text-align:center}
+.ut{display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:.75rem 1.25rem;box-shadow:0 8px 30px rgba(61,53,53,.15);z-index:300;align-items:center;gap:1rem;font-size:.85rem;animation:slideUp .3s ease}
+.ut.show{display:flex}
+@media(max-width:1100px){.answer-layout,.history-layout{grid-template-columns:1fr}.q-summary{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.cg3,.cg2,.q-summary,.metric-grid,.compare-grid{grid-template-columns:1fr}.ps{width:60px}.psl span,.si span:last-child{display:none}.toolbar,.toolbar-group,.question-top,.record-top,.focus-banner{align-items:flex-start;flex-direction:column}.search-input{min-width:100%}}
+</style>
+</head>
+<body>
+
+<nav class="top-nav"><div class="nav-inner">
+<div class="nav-logo"><div class="logo-icon">🎯</div><span>InterviewAI</span><span class="badge">COMP7505 Track A</span></div>
+<div class="nav-tabs">
+<button class="nav-tab active" onclick="switchTab('spec')">📐 Design Spec</button>
+<button class="nav-tab" onclick="switchTab('flow')">🔀 Flow Diagrams</button>
+<button class="nav-tab" onclick="switchTab('proto')">📱 Prototype</button>
+</div>
+</div></nav>
+
+<div class="main">
+
+<!-- TAB 1: SPEC -->
+<div id="tab-spec" class="tab-panel active">
+<div class="sh"><h1>Interaction Design Specification</h1><p>AI-Powered Interview Preparation Assistant — defining the interaction model, information architecture, and navigation structure for a smart adaptive interface (Track A).</p></div>
+
+<h2 class="st"><span class="ic" style="background:linear-gradient(135deg,rgba(155,142,158,.2),rgba(168,155,172,.2))">🤖</span>Interaction Model</h2>
+<p style="color:var(--t3);font-size:.88rem;margin-bottom:1.25rem;line-height:1.6">The product adopts a <strong style="color:var(--t1)">Human-AI Collaborative Interaction</strong> paradigm. AI serves as a supportive coach — never the final decision-maker.</p>
+<div class="cg3">
+<div class="card"><div class="ci" style="background:linear-gradient(135deg,rgba(139,167,184,.2),rgba(139,167,184,.1))">🔍</div><h3>AI Transparency Mode</h3><p>Every AI output includes an explanation of its reasoning and a confidence indicator. Users can always see <em>why</em> the AI gave a particular score.</p><div style="margin-top:.75rem"><span class="ptag">Confidence Bars</span><span class="ptag">Reasoning Traces</span><span class="ptag">Source Attribution</span></div></div>
+<div class="card"><div class="ci" style="background:linear-gradient(135deg,rgba(155,142,158,.2),rgba(155,142,158,.1))">🎛️</div><h3>User Control Mode</h3><p>Users retain full authority over AI outputs. They can override scores, flag inaccurate feedback, adjust evaluation weights, and undo any action.</p><div style="margin-top:.75rem"><span class="ptag">Manual Override</span><span class="ptag">Undo/Redo</span><span class="ptag">Weight Adjustment</span></div></div>
+<div class="card"><div class="ci" style="background:linear-gradient(135deg,rgba(196,168,130,.2),rgba(196,168,130,.1))">🛡️</div><h3>Graceful Degradation</h3><p>When AI fails (speech errors, incorrect outputs, network issues), the system degrades gracefully with clear fallback options.</p><div style="margin-top:.75rem"><span class="ptag">Fallback UI</span><span class="ptag">Error Recovery</span><span class="ptag">Limitation Alerts</span></div></div>
+</div>
+
+<div style="margin-top:1.5rem;background:linear-gradient(90deg,rgba(139,167,184,.12),rgba(155,142,158,.06));border:1px solid rgba(139,167,184,.2);border-radius:14px;padding:1.25rem 1.5rem">
+<div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem"><span style="font-size:1.1rem">ℹ️</span><strong style="font-size:.88rem;color:var(--info)">System Capability Boundaries (Track A Mandatory)</strong></div>
+<ul style="list-style:none;font-size:.82rem;color:var(--t3);line-height:1.8">
+<li>✅ <strong style="color:var(--t2)">Can:</strong> Evaluate answer structure, logical flow, expression clarity, STAR framework usage</li>
+<li>✅ <strong style="color:var(--t2)">Can:</strong> Generate role-relevant questions based on JD keywords</li>
+<li>❌ <strong style="color:var(--t2)">Cannot:</strong> Judge industry-specific technical depth or domain expertise</li>
+<li>❌ <strong style="color:var(--t2)">Cannot:</strong> Replace real interviewer judgment or guarantee outcomes</li>
+<li>⚠️ <strong style="color:var(--t2)">Limited:</strong> Voice analysis accuracy depends on audio quality</li>
+</ul></div>
+
+<h2 class="st"><span class="ic" style="background:linear-gradient(135deg,rgba(140,174,158,.2),rgba(140,174,158,.1))">🏗️</span>Information Architecture</h2>
+<div class="mc"><div class="mermaid">
+graph TD
+    ROOT["🎯 InterviewAI"]
+    ROOT --> HOME["🏠 Dashboard"]
+    ROOT --> PRACTICE["📝 Practice"]
+    ROOT --> REVIEW["🔄 Review"]
+    ROOT --> HISTORY["📊 History"]
+    ROOT --> SETTINGS["⚙️ Settings"]
+    HOME --> HR["Recent Sessions"]
+    HOME --> HS["Performance Stats"]
+    HOME --> HQ["Quick Start"]
+    PRACTICE --> PI["Job Input"]
+    PRACTICE --> PR["Resume Upload"]
+    PRACTICE --> PQ["AI Question List"]
+    PRACTICE --> PA["Answer Interface"]
+    PRACTICE --> PF["Scoring & Feedback"]
+    PF --> PO["User Override"]
+    PA --> VE["⚠️ Voice Failure → Text"]
+    PQ --> AE["⚠️ AI Error → Skip"]
+    REVIEW --> RU["Upload Recording"]
+    REVIEW --> RE["Content Extraction"]
+    REVIEW --> RC["Review Content"]
+    REVIEW --> RF["Feedback Summary"]
+    RE --> REE["⚠️ Extract Fail → Manual"]
+    HISTORY --> HL["Session List"]
+    HISTORY --> HD["Session Detail"]
+    SETTINGS --> SP["Profile"]
+    SETTINGS --> SE["Eval Preferences"]
+    SETTINGS --> SA["AI Config"]
+    style ROOT fill:#9B8E9E,stroke:#857888,color:#fff
+    style VE fill:#C48A8A,stroke:#B07575,color:#fff
+    style AE fill:#C48A8A,stroke:#B07575,color:#fff
+    style REE fill:#C48A8A,stroke:#B07575,color:#fff
+    style PO fill:#A89BAC,stroke:#9B8E9E,color:#fff
+</div></div>
+
+<h2 class="st"><span class="ic" style="background:linear-gradient(135deg,rgba(196,168,130,.2),rgba(196,168,130,.1))">🧭</span>Navigation Structure</h2>
+<p style="color:var(--t3);font-size:.85rem;margin-bottom:1rem;line-height:1.6">Persistent left sidebar for global nav. Breadcrumbs track position within multi-step workflows.</p>
+<div class="cg2" style="margin-bottom:1.5rem">
+<div class="card"><h3>🔹 Global Navigation (Sidebar)</h3><p>Always visible. Five primary entries: Dashboard, Practice, Review, History, Settings. Active state highlighted with gradient.</p></div>
+<div class="card"><h3>🔹 Sequential Workflow Nav</h3><p>Practice & Review follow linear steps with Next/Back buttons. Jump to completed steps via breadcrumbs; cannot skip ahead.</p></div>
+</div>
+<table class="tbl"><thead><tr><th>From</th><th>To</th><th>Trigger</th><th>Transition</th></tr></thead><tbody>
+<tr><td>Dashboard</td><td>Job Input</td><td>"Start Practice" button</td><td>Slide right</td></tr>
+<tr><td>Dashboard</td><td>Upload Recording</td><td>"Start Review" button</td><td>Slide right</td></tr>
+<tr><td>Job Input</td><td>Resume Upload</td><td>"Next" (after validation)</td><td>Slide right</td></tr>
+<tr><td>Resume Upload</td><td>Question List</td><td>"Generate Questions"</td><td>Fade + loading</td></tr>
+<tr><td>Question List</td><td>Answer Interface</td><td>Click question card</td><td>Slide right</td></tr>
+<tr><td>Answer</td><td>Scoring Feedback</td><td>"Submit Answer"</td><td>Fade + loading</td></tr>
+<tr><td>Feedback</td><td>Question List</td><td>"Next Question"</td><td>Slide left</td></tr>
+<tr><td>Upload</td><td>Content Extraction</td><td>"Upload & Process"</td><td>Fade + loading</td></tr>
+<tr><td>Extraction</td><td>Feedback Summary</td><td>"Confirm & Get Feedback"</td><td>Slide right</td></tr>
+<tr><td>Any page</td><td>History/Settings</td><td>Sidebar click</td><td>Fade</td></tr>
+</tbody></table>
+</div>
+
+<!-- TAB 2: FLOW -->
+<div id="tab-flow" class="tab-panel">
+<div class="sh"><h1>Core Task Flow Diagrams</h1><p>End-to-end interaction flows for Practice and Review workflows, including page transitions, feedback, and exception handling.</p></div>
+<div class="ft">
+<button class="fb active" onclick="switchFlow('practice')">📝 Practice Workflow</button>
+<button class="fb" onclick="switchFlow('review')">🔄 Review Workflow</button>
+</div>
+<div id="flow-practice" class="fp active"><div class="mc"><div class="mermaid">
+flowchart TD
+    S(("🟢 Start")) --> IN["📋 Enter Role, Company & JD"]
+    IN --> V{"Input Valid?"}
+    V -->|"❌ Missing"| EI["⚠️ Validation error"]
+    EI --> IN
+    V -->|"✅"| RS["📄 Upload Resume"]
+    RS --> RC{"File OK?"}
+    RC -->|"❌ Invalid"| EF["⚠️ Format error"]
+    EF --> RS
+    RC -->|"✅"| LQ["⏳ AI Generating Questions..."]
+    LQ --> NW{"Network OK?"}
+    NW -->|"❌"| EN["🔴 Network Error + Retry"]
+    EN --> LQ
+    NW -->|"✅"| AG{"AI OK?"}
+    AG -->|"❌"| EA["🔴 AI Error → Use general Qs"]
+    EA --> QL
+    AG -->|"✅"| QL["📋 Question List"]
+    QL --> SL["👆 Select Question"]
+    SL --> AN["💬 Answer (Text/Voice)"]
+    AN --> VM{"Voice Mode?"}
+    VM -->|"Yes"| VR["🎙️ Recording..."]
+    VR --> VO{"Recognition OK?"}
+    VO -->|"❌"| EV["⚠️ Voice Failed → Text Fallback"]
+    EV --> TI["⌨️ Text Input"]
+    TI --> SB
+    VO -->|"✅"| SB
+    VM -->|"No"| TD["⌨️ Type Answer"]
+    TD --> SB["📤 Submit"]
+    SB --> AE["⏳ AI Evaluating..."]
+    AE --> FB["📊 Score + Confidence + Suggestions"]
+    FB --> CK{"Confidence?"}
+    CK -->|"🟡 Low"| LC["⚠️ Seek real interviewer feedback"]
+    LC --> UC
+    CK -->|"🟢 High"| UC["🎛️ User Controls: Flag / Override / Undo"]
+    UC --> NX{"Next?"}
+    NX -->|"Next Q"| QL
+    NX -->|"Save"| SV["💾 Save"]
+    SV --> DB(("🏠 Dashboard"))
+    style S fill:#8CAE9E,stroke:#7A9C8C,color:#fff
+    style DB fill:#8CAE9E,stroke:#7A9C8C,color:#fff
+    style EI fill:#C48A8A,stroke:#B07575,color:#fff
+    style EF fill:#C48A8A,stroke:#B07575,color:#fff
+    style EN fill:#C48A8A,stroke:#B07575,color:#fff
+    style EA fill:#C48A8A,stroke:#B07575,color:#fff
+    style EV fill:#C48A8A,stroke:#B07575,color:#fff
+    style LC fill:#C4A882,stroke:#B09670,color:#fff
+    style LQ fill:#A89BAC,stroke:#9B8E9E,color:#fff
+    style AE fill:#A89BAC,stroke:#9B8E9E,color:#fff
+    style UC fill:#9B8E9E,stroke:#857888,color:#fff
+    style FB fill:#8CAE9E,stroke:#7A9C8C,color:#fff
+</div></div></div>
+<div id="flow-review" class="fp"><div class="mc"><div class="mermaid">
+flowchart TD
+    S2(("🟢 Start")) --> UP["🎙️ Upload Recording"]
+    UP --> UC2{"File Valid?"}
+    UC2 -->|"❌"| EU["⚠️ Invalid format"]
+    EU --> UP
+    UC2 -->|"✅"| PR["⏳ Extracting Q&A..."]
+    PR --> EO{"Extraction OK?"}
+    EO -->|"❌"| EE["🔴 Extraction Failed"]
+    EE --> MC{"Choice?"}
+    MC -->|"Manual"| MI["⌨️ Manual Input"]
+    MC -->|"Re-upload"| UP
+    MI --> RV
+    EO -->|"✅"| RV["📋 Review Extracted Content"]
+    RV --> ED{"Edits?"}
+    ED -->|"Yes"| EC["✏️ Edit inline"]
+    EC --> CF
+    ED -->|"No"| CF["✅ Confirm"]
+    CF --> AR["⏳ AI Analyzing..."]
+    AR --> NW2{"Network OK?"}
+    NW2 -->|"❌"| EN2["🔴 Save draft + Retry"]
+    EN2 --> AR
+    NW2 -->|"✅"| SM["📊 Feedback Summary"]
+    SM --> C2{"Confidence?"}
+    C2 -->|"🟡 Low"| W2["⚠️ Incomplete due to audio"]
+    W2 --> AC
+    C2 -->|"🟢 High"| AC["🎛️ Save / Export / Practice / Flag"]
+    AC --> SV2["💾 Save"]
+    SV2 --> DB2(("🏠 Dashboard"))
+    style S2 fill:#8CAE9E,stroke:#7A9C8C,color:#fff
+    style DB2 fill:#8CAE9E,stroke:#7A9C8C,color:#fff
+    style EU fill:#C48A8A,stroke:#B07575,color:#fff
+    style EE fill:#C48A8A,stroke:#B07575,color:#fff
+    style EN2 fill:#C48A8A,stroke:#B07575,color:#fff
+    style W2 fill:#C4A882,stroke:#B09670,color:#fff
+    style PR fill:#A89BAC,stroke:#9B8E9E,color:#fff
+    style AR fill:#A89BAC,stroke:#9B8E9E,color:#fff
+    style AC fill:#9B8E9E,stroke:#857888,color:#fff
+    style SM fill:#8CAE9E,stroke:#7A9C8C,color:#fff
+</div></div></div>
+<div class="legend">
+<div class="li"><div class="ld" style="background:#8CAE9E"></div>Start / End</div>
+<div class="li"><div class="ld" style="background:#EBE4E1;border:1px solid #D5CBC6"></div>Normal Action</div>
+<div class="li"><div class="ld" style="background:#A89BAC;border:1px solid #9B8E9E"></div>AI Processing</div>
+<div class="li"><div class="ld" style="background:#8CAE9E;border:1px solid #7A9C8C"></div>Feedback / Success</div>
+<div class="li"><div class="ld" style="background:#C48A8A;border:1px solid #B07575"></div>Error / Exception</div>
+<div class="li"><div class="ld" style="background:#C4A882;border:1px solid #B09670"></div>Warning</div>
+<div class="li"><div class="ld" style="background:#9B8E9E;border:1px solid #857888"></div>User Control</div>
+</div>
+</div>
+
+<!-- TAB 3: PROTOTYPE -->
+<div id="tab-proto" class="tab-panel">
+<div class="sh"><h1>High-Fidelity Interactive Prototype</h1><p>Click through the prototype below. Use the sidebar to navigate between modules.</p></div>
+<div class="pf">
+<div class="ps">
+<div class="psl"><div class="lc">🎯</div><span>InterviewAI</span></div>
+<div class="sn">
+<button class="si active" onclick="pNav('dash')"><span style="width:20px;text-align:center">🏠</span><span>Dashboard</span></button>
+<button class="si" onclick="pNav('jin')"><span style="width:20px;text-align:center">📝</span><span>Practice</span></button>
+<button class="si" onclick="pNav('rup')"><span style="width:20px;text-align:center">🔄</span><span>Review</span></button>
+<button class="si" onclick="pNav('hist')"><span style="width:20px;text-align:center">📊</span><span>History</span></button>
+<button class="si" onclick="pNav('sett')"><span style="width:20px;text-align:center">⚙️</span><span>Settings</span></button>
+</div>
+<div style="padding:0 1rem;margin-top:auto"><div style="background:rgba(155,142,158,.12);border-radius:10px;padding:.75rem;text-align:center"><div style="font-size:.72rem;color:var(--t3)">Free Plan</div><div style="font-size:.78rem;font-weight:600;color:var(--p1);margin-top:.15rem">3/5 sessions</div></div></div>
+</div>
+<div class="pm">
+<div class="sb"><span>ℹ️</span><span>AI evaluates answer structure & expression, but <strong>cannot judge industry-specific technical depth</strong>.</span></div>
+<div class="pt"><div class="bc" id="brc"><span class="cur">Dashboard</span></div><div style="display:flex;gap:.5rem;align-items:center"><button class="btn bsm bs" onclick="showM('voice')">⚡ Sim Fault</button><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p3));display:flex;align-items:center;justify-content:center;font-size:.85rem">👤</div></div></div>
+<div class="pb">
+
+<!-- Dashboard -->
+<div class="pp active" id="p-dash">
+<div class="wh"><h2>Welcome back, Alex! 👋</h2><p>Ready to ace your next interview? Start a practice session or review a past recording.</p><div style="display:flex;gap:.75rem;margin-top:1.25rem"><button class="btn bp" onclick="pNav('jin')">🚀 Start Practice</button><button class="btn bs" onclick="pNav('rup')">🔄 Start Review</button></div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem">
+<div class="stc"><div class="sn2" style="color:var(--p1)">12</div><div class="sl">Sessions</div></div>
+<div class="stc"><div class="sn2" style="color:var(--ok)">7.8</div><div class="sl">Avg Score</div></div>
+<div class="stc"><div class="sn2" style="color:var(--warn)">+1.2</div><div class="sl">Trend</div></div>
+<div class="stc"><div class="sn2" style="color:var(--info)">85%</div><div class="sl">Improvement</div></div>
+</div>
+<h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem">📌 Recent Sessions</h3>
+<div class="hi" style="cursor:pointer" onclick="pNav('fbk')"><span style="font-size:1.5rem">📝</span><div style="flex:1"><div style="font-size:.88rem;font-weight:600">Frontend Developer — ByteDance</div><div style="font-size:.75rem;color:var(--t3);margin-top:.15rem">Practice · Apr 13 · 8 questions</div></div><span style="font-size:1.1rem;font-weight:700;color:var(--ok)">8.2</span></div>
+<div class="hi"><span style="font-size:1.5rem">🔄</span><div style="flex:1"><div style="font-size:.88rem;font-weight:600">Product Manager — Tencent</div><div style="font-size:.75rem;color:var(--t3);margin-top:.15rem">Review · Apr 11 · 45 min</div></div><span style="font-size:1.1rem;font-weight:700;color:var(--warn)">6.9</span></div>
+</div>
+
+<!-- Job Input -->
+<div class="pp" id="p-jin">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem">📋 Job Information</h2>
+<p style="font-size:.85rem;color:var(--t3);margin-bottom:1.5rem">Enter the target role details. AI will tailor questions based on this.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem">
+<div><label class="il">Target Role *</label><input class="inf" value="Frontend Developer"></div>
+<div><label class="il">Company *</label><input class="inf" value="ByteDance"></div>
+</div>
+<div style="margin-bottom:1.5rem"><label class="il">Job Description *</label><textarea class="ta" style="min-height:140px">We are looking for a Frontend Developer to join our team. Requirements: React, TypeScript, strong HTML/CSS/JavaScript skills...</textarea></div>
+<div style="display:flex;gap:.75rem;justify-content:flex-end"><button class="btn bs" onclick="pNav('dash')">Cancel</button><button class="btn bp" onclick="pNav('res')">Next: Upload Resume →</button></div>
+</div>
+
+<!-- Resume Upload -->
+<div class="pp" id="p-res">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem">📄 Resume & Background</h2>
+<p style="font-size:.85rem;color:var(--t3);margin-bottom:1.5rem">Upload your resume so AI can personalize questions.</p>
+<div class="uz" onclick="this.innerHTML='<div style=font-size:2.5rem;margin-bottom:.75rem>✅</div><div style=font-size:.9rem;font-weight:600;color:var(--ok)>resume_alex.pdf uploaded</div><div style=font-size:.78rem;color:var(--t3);margin-top:.35rem>Click to replace</div>'"><div style="font-size:2.5rem;margin-bottom:.75rem">📎</div><div style="font-size:.9rem;color:var(--t2);font-weight:600">Drag & drop resume here</div><div style="font-size:.78rem;color:var(--t3);margin-top:.35rem">PDF, DOCX (max 10MB)</div></div>
+<div style="margin-top:1.5rem"><label class="il">Additional Background (Optional)</label><textarea class="ta">I led a dashboard project using React and D3.js. Focus on behavioral questions and system design.</textarea></div>
+<div style="display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.5rem"><button class="btn bs" onclick="pNav('jin')">← Back</button><button class="btn bp" onclick="pNav('qst')">Generate Questions 🤖</button></div>
+</div>
+
+<!-- Questions -->
+<div class="pp" id="p-qst">
+<div class="toolbar">
+<div><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem">🤖 AI-Generated Questions</h2><p style="font-size:.85rem;color:var(--t3)">Manage, filter, and reprioritize questions for <strong style="color:var(--t1)">Frontend Developer</strong> at <strong style="color:var(--t1)">ByteDance</strong>.</p></div>
+<div class="toolbar-group"><button class="btn bsm bs" onclick="showM('ai')">🔄 Bulk Regenerate</button><button class="btn bsm bp" onclick="openQuestion(currentQuestionId)">▶ Continue Current</button></div>
+</div>
+<div class="q-summary" id="question-summary"></div>
+<div class="panel-card" style="margin-bottom:1rem">
+<div class="toolbar" style="margin-bottom:0">
+<div class="toolbar-group">
+<select class="filter-select" id="question-type-filter" onchange="setQuestionFilter('type', this.value)">
+<option value="all">All Types</option>
+<option value="Behavioral">Behavioral</option>
+<option value="Technical">Technical</option>
+<option value="System Design">System Design</option>
+</select>
+<select class="filter-select" id="question-status-filter" onchange="setQuestionFilter('status', this.value)">
+<option value="all">All Status</option>
+<option value="ready">Not Started</option>
+<option value="in_progress">In Progress</option>
+<option value="completed">Completed</option>
+<option value="skipped">Skipped</option>
+</select>
+<select class="filter-select" id="question-sort-filter" onchange="setQuestionFilter('sort', this.value)">
+<option value="relevance">Sort: JD Match</option>
+<option value="difficulty">Sort: Difficulty</option>
+<option value="duration">Sort: Duration</option>
+</select>
+</div>
+<div class="mini-note">Tip: mark weak questions and come back after each review cycle.</div>
+</div>
+</div>
+<div class="q-list" id="question-list"></div>
+</div>
+
+<!-- Answer -->
+<div class="pp" id="p-ans">
+<div class="answer-layout">
+<div class="answer-main">
+<div class="panel-card">
+<div id="answer-question-header"></div>
+<div class="focus-banner" style="margin:1rem 0">
+<div><strong id="answer-focus-title">Coach Focus</strong><span id="answer-focus-copy">We'll track structure, quantified impact, and role relevance while you answer.</span></div>
+<span class="tag tb" id="answer-focus-tag">Active Question</span>
+</div>
+<div style="display:flex;gap:.5rem;margin-bottom:1rem"><button class="btn bsm bp">⌨️ Text</button><button class="btn bsm bs" onclick="showM('voice')">🎤 Voice</button></div>
+<label class="il" for="answer-input">Your Draft</label>
+<textarea class="ta answer-textarea" id="answer-input" oninput="handleAnswerInput()"></textarea>
+<div class="coach-chips" id="answer-coach-chips"></div>
+<div class="answer-actions" style="justify-content:space-between">
+<button class="btn bs" onclick="pNav('qst')">← Back to Questions</button>
+<div class="toolbar-group">
+<button class="btn bsm bs" onclick="saveDraftAnswer()">💾 Save Draft</button>
+<button class="btn bp" onclick="submitAnswer()">Submit Answer 📤</button>
+</div>
+</div>
+</div>
+</div>
+<div class="answer-side">
+<div class="panel-card">
+<div class="panel-title">📈 Realtime Scoreboard</div>
+<div class="metric-grid" id="answer-metrics"></div>
+</div>
+<div class="panel-card">
+<div class="panel-title">🧩 STAR Coverage</div>
+<div class="checklist" id="star-checklist"></div>
+</div>
+<div class="panel-card">
+<div class="panel-title">💡 Live Coaching</div>
+<div class="guide-list" id="live-guidance"></div>
+</div>
+<div class="panel-card">
+<div class="panel-title">⚡ Quick Improvement Inserts</div>
+<div class="snippet-list">
+<div class="snippet-item"><span>📊</span><span>Insert a quantified result to make your impact credible.</span></div>
+<div class="snippet-item"><span>🤝</span><span>Add one sentence on stakeholder or teammate alignment.</span></div>
+<div class="snippet-item"><span>🎯</span><span>Connect the answer back to the target role or company context.</span></div>
+</div>
+<div class="coach-chips" style="margin-top:1rem">
+<button class="chip-btn" onclick="applyCoachTip('result')">+ Quantified Result</button>
+<button class="chip-btn" onclick="applyCoachTip('team')">+ Team Context</button>
+<button class="chip-btn" onclick="applyCoachTip('role')">+ Role Relevance</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Feedback -->
+<div class="pp" id="p-fbk">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:1.25rem">📊 AI Evaluation Results</h2>
+<div class="cg2" style="margin-bottom:1.25rem">
+<div class="sc"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem"><div><div style="font-size:2rem;font-weight:800;color:var(--ok)">8.2<span style="font-size:1rem;color:var(--t3)">/10</span></div><div style="font-size:.8rem;color:var(--t3)">Overall Score</div></div><span class="tag tg">Good</span></div>
+<div style="font-size:.78rem;color:var(--t3);margin-top:.5rem">Confidence</div><div class="cb"><div class="cf" style="width:78%;background:linear-gradient(90deg,var(--ok),#9CBDAB)"></div></div><div style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--ok);margin-top:.25rem"><span>🟢</span><span>78% — High confidence</span></div></div>
+<div class="sc"><h3 style="font-size:.88rem;font-weight:700;margin-bottom:.75rem">Dimension Breakdown</h3>
+<div style="margin-bottom:.6rem"><div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.25rem"><span>STAR Framework</span><span style="font-weight:600;color:var(--p1)">9/10</span></div><div class="cb"><div class="cf" style="width:90%;background:var(--ok)"></div></div></div>
+<div style="margin-bottom:.6rem"><div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.25rem"><span>Clarity & Logic</span><span style="font-weight:600;color:var(--p1)">8/10</span></div><div class="cb"><div class="cf" style="width:80%;background:var(--ok)"></div></div></div>
+<div style="margin-bottom:.6rem"><div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.25rem"><span>Technical Depth</span><span style="font-weight:600;color:var(--p1)">7/10</span></div><div class="cb"><div class="cf" style="width:45%;background:var(--warn)"></div></div><div style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--warn);margin-top:.25rem"><span>⚠️</span><span>Low confidence — cannot assess domain depth. Seek real interviewer feedback.</span></div></div>
+<div><div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.25rem"><span>Role Relevance</span><span style="font-weight:600;color:var(--p1)">8/10</span></div><div class="cb"><div class="cf" style="width:75%;background:var(--ok)"></div></div></div>
+</div></div>
+<div class="card" style="margin-bottom:1rem"><h3 style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">💡 AI Reasoning</h3><div style="font-size:.85rem;color:var(--t2);line-height:1.7"><p><strong style="color:var(--ok)">Strengths:</strong> Excellent STAR framework. Technical details (DevTools, useEffect cleanup, data windowing) add credibility. Quantified result (70%).</p><p style="margin-top:.5rem"><strong style="color:var(--warn)">Improve:</strong> Add team communication context. For ByteDance, mention scalability.</p><p style="margin-top:.5rem"><strong style="color:var(--info)">Suggestion:</strong> "...I set up a Slack thread to keep the team updated and delegated UI polish..."</p></div></div>
+<div class="card" style="background:linear-gradient(135deg,rgba(155,142,158,.1),rgba(168,155,172,.05));border-color:rgba(155,142,158,.2)"><h3 style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;color:var(--p1)">🎛️ User Control <span class="tag tb" style="font-size:.65rem">Track A Required</span></h3><div style="display:flex;flex-wrap:wrap;gap:.75rem"><button class="btn bsm bw" onclick="alert('Flagged as inaccurate. System will learn from your correction.')">🚩 Flag Inaccurate</button><button class="btn bsm bs" onclick="alert('You can now manually adjust all dimension scores.')">✏️ Override Scores</button><button class="btn bsm bd" onclick="showUndo()">↩️ Undo</button><button class="btn bsm bs" onclick="if(confirm('Discard this evaluation?'))pNav('qst')">🗑️ Discard</button></div></div>
+<div style="display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.25rem"><button class="btn bs" onclick="goToNextQuestion()">← Next Question</button><button class="btn bp" onclick="pNav('dash')">💾 Save & Exit</button></div>
+</div>
+
+<!-- Review Upload -->
+<div class="pp" id="p-rup">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem">🎙️ Upload Interview Recording</h2>
+<p style="font-size:.85rem;color:var(--t3);margin-bottom:1.5rem">Upload a recording for AI-powered analysis.</p>
+<div class="uz" onclick="pNav('rex')"><div style="font-size:2.5rem;margin-bottom:.75rem">🎵</div><div style="font-size:.9rem;color:var(--t2);font-weight:600">Drag & drop audio file here</div><div style="font-size:.78rem;color:var(--t3);margin-top:.35rem">MP3, WAV, M4A (max 100MB)</div></div>
+<div style="margin-top:1.5rem"><label class="il">Interview Context (Optional)</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem"><input class="inf" placeholder="Role" value="Product Manager"><input class="inf" placeholder="Company" value="Tencent"></div></div>
+</div>
+
+<!-- Review Extract -->
+<div class="pp" id="p-rex">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:.25rem">📋 Extracted Interview Content</h2>
+<p style="font-size:.85rem;color:var(--t3);margin-bottom:1rem">Review and edit the AI-extracted Q&A pairs.</p>
+<div style="background:rgba(196,168,130,.1);border:1px solid rgba(196,168,130,.22);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--warn)">⚠️ Some sections had low audio quality. Please review carefully.</div>
+<div class="eb"><div class="ebl">Interviewer — Q1</div><div class="ebt">Walk me through your experience leading product initiatives. What product decision had significant impact?</div></div>
+<div class="eb"><div class="ebl">Your Answer — Q1</div><div class="ebt" contenteditable="true" style="border:1px dashed transparent;padding:.25rem;border-radius:4px" onfocus="this.style.borderColor='var(--p1)'" onblur="this.style.borderColor='transparent'">At my internship at Company X, I found our onboarding had a 40% drop-off. I proposed progressive disclosure — essential fields first. A/B test showed 25% improvement, rolled out company-wide.</div></div>
+<div class="eb"><div class="ebl">Interviewer — Q2</div><div class="ebt">How do you prioritize features with competing stakeholder demands?</div></div>
+<div class="eb"><div class="ebl">Your Answer — Q2</div><div class="ebt" contenteditable="true" style="border:1px dashed transparent;padding:.25rem;border-radius:4px" onfocus="this.style.borderColor='var(--p1)'" onblur="this.style.borderColor='transparent'">[Audio unclear] ...impact vs effort matrix... align with OKRs... [partially inaudible]</div></div>
+<div style="display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.25rem"><button class="btn bs" onclick="pNav('rup')">← Re-upload</button><button class="btn bp" onclick="pNav('rfb')">Confirm & Get Feedback 🤖</button></div>
+</div>
+
+<!-- Review Feedback -->
+<div class="pp" id="p-rfb">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:1.25rem">📊 Interview Review Summary</h2>
+<div class="cg2" style="margin-bottom:1rem">
+<div class="sc"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem"><div><div style="font-size:2rem;font-weight:800;color:var(--warn)">6.9<span style="font-size:1rem;color:var(--t3)">/10</span></div><div style="font-size:.8rem;color:var(--t3)">Overall</div></div><span class="tag ty">Fair</span></div><div style="font-size:.78rem;color:var(--t3);margin-top:.5rem">Confidence</div><div class="cb"><div class="cf" style="width:55%;background:var(--warn)"></div></div><div style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--warn);margin-top:.25rem"><span>⚠️</span><span>55% — Reduced due to audio quality</span></div></div>
+<div class="sc"><h3 style="font-size:.88rem;font-weight:700;margin-bottom:.75rem">Key Findings</h3><div style="font-size:.82rem;color:var(--t2);line-height:1.7"><p>✅ Strong data usage (40% drop-off, 25% improvement)</p><p>✅ Clear problem → solution → result</p><p>⚠️ Q2 partially inaudible</p><p>❌ Missing: stakeholder management examples</p></div></div>
+</div>
+<div class="card" style="margin-bottom:1rem"><h3 style="margin-bottom:.75rem">✨ Polished Answer (Q1)</h3><div style="font-size:.85rem;color:var(--t2);line-height:1.7;background:rgba(140,174,158,.08);border-radius:10px;padding:1rem;border:1px solid rgba(140,174,158,.15)">"During my internship at Company X, I noticed a concerning 40% drop-off rate. I <strong style="color:var(--ok)">collaborated with the design team to implement progressive disclosure</strong>, led the A/B test showing <strong style="color:var(--ok)">25% improvement</strong>. <strong style="color:var(--ok)">Adopted company-wide</strong>."</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem"><button class="btn bp" onclick="pNav('dash')">💾 Save</button><button class="btn bs">📤 Export</button><button class="btn bs" onclick="pNav('jin')">📝 Practice Weak Areas</button><button class="btn bsm bw" onclick="alert('Flagged. Thank you!')">🚩 Flag</button></div>
+</div>
+
+<!-- History -->
+<div class="pp" id="p-hist">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:1.25rem">📊 Session History</h2>
+<div class="q-summary" id="history-summary" style="margin-bottom:1rem"></div>
+<div class="panel-card" style="margin-bottom:1rem">
+<div class="toolbar" style="margin-bottom:0">
+<div class="toolbar-group">
+<button class="btn bsm bp" id="history-type-all" onclick="setHistoryFilter('type','all')">All</button>
+<button class="btn bsm bs" id="history-type-practice" onclick="setHistoryFilter('type','Practice')">Practice</button>
+<button class="btn bsm bs" id="history-type-review" onclick="setHistoryFilter('type','Review')">Review</button>
+<input class="search-input" id="history-search" type="text" placeholder="Search role, company, focus area" oninput="setHistoryFilter('search', this.value)">
+</div>
+<div class="toolbar-group">
+<div class="mini-note" id="history-compare-state">Select 2 sessions to compare growth over time.</div>
+<button class="btn bsm bs" onclick="clearHistorySelection()">Clear Compare</button>
+</div>
+</div>
+</div>
+<div class="history-layout">
+<div class="history-list" id="history-list"></div>
+<div class="compare-panel" id="history-compare-panel"></div>
+</div>
+</div>
+
+<!-- Settings -->
+<div class="pp" id="p-sett">
+<h2 style="font-size:1.25rem;font-weight:700;margin-bottom:1.25rem">⚙️ Settings</h2>
+<div class="card" style="margin-bottom:1.25rem"><h3 style="margin-bottom:.75rem">👤 Profile</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem"><div><label class="il">Name</label><input class="inf" value="Alex Chen"></div><div><label class="il">Email</label><input class="inf" value="alex.chen@hku.hk"></div></div></div>
+<div class="card" style="margin-bottom:1.25rem"><h3 style="margin-bottom:.75rem">🤖 AI Behavior</h3>
+<div class="sr"><div><div style="font-size:.88rem;font-weight:500">Show Confidence Indicators</div><div style="font-size:.78rem;color:var(--t3)">Display confidence bars alongside AI scores</div></div><button class="tg2 on" onclick="this.classList.toggle('on')"></button></div>
+<div class="sr"><div><div style="font-size:.88rem;font-weight:500">Show AI Reasoning</div><div style="font-size:.78rem;color:var(--t3)">Display explanations for evaluations</div></div><button class="tg2 on" onclick="this.classList.toggle('on')"></button></div>
+<div class="sr"><div><div style="font-size:.88rem;font-weight:500">Low Confidence Warnings</div><div style="font-size:.78rem;color:var(--t3)">Alert when confidence below threshold</div></div><button class="tg2 on" onclick="this.classList.toggle('on')"></button></div>
+<div class="sr"><div><div style="font-size:.88rem;font-weight:500">Confirm Key Actions</div><div style="font-size:.78rem;color:var(--t3)">Require confirmation for score override & discard</div></div><button class="tg2 on" onclick="this.classList.toggle('on')"></button></div>
+</div>
+</div>
+
+</div></div></div>
+</div>
+
+<!-- Modals -->
+<div class="mo" id="m-voice" onclick="if(event.target===this)this.classList.remove('show')">
+<div class="md">
+<h3 style="color:var(--err)">⚠️ Voice Recognition Failed</h3>
+<p>Speech recognition could not process your audio. This may be due to background noise, microphone issues, or unsupported language.</p>
+<div style="background:rgba(139,167,184,.1);border:1px solid rgba(139,167,184,.15);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;font-size:.82rem;color:var(--info)">💡 <strong>Fallback:</strong> You can type your answer instead. Your progress has been preserved.</div>
+<div style="display:flex;gap:.75rem;justify-content:flex-end"><button class="btn bs" onclick="document.getElementById('m-voice').classList.remove('show')">Retry Voice</button><button class="btn bp" onclick="document.getElementById('m-voice').classList.remove('show')">⌨️ Switch to Text</button></div>
+</div></div>
+
+<div class="mo" id="m-ai" onclick="if(event.target===this)this.classList.remove('show')">
+<div class="md">
+<h3 style="color:var(--err)">🔴 AI Generation Error</h3>
+<p>The AI could not generate role-specific questions at this time. This may be due to an unclear job description or a temporary service issue.</p>
+<div style="background:rgba(196,168,130,.1);border:1px solid rgba(196,168,130,.18);border-radius:10px;padding:.75rem 1rem;margin-bottom:1rem;font-size:.82rem;color:var(--warn)">🛡️ <strong>Fallback:</strong> You can use our general question bank, or try regenerating with a more detailed JD.</div>
+<div style="display:flex;gap:.75rem;justify-content:flex-end"><button class="btn bs" onclick="document.getElementById('m-ai').classList.remove('show')">Use General Questions</button><button class="btn bp" onclick="document.getElementById('m-ai').classList.remove('show')">🔄 Retry</button></div>
+</div></div>
+
+<div class="ut" id="undo-toast">
+<span>↩️ Action undone successfully</span>
+<button class="btn bsm bp" onclick="document.getElementById('undo-toast').classList.remove('show')">Dismiss</button>
+</div>
+
+<script>
+mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#D5CBC6',primaryTextColor:'#3D3535',primaryBorderColor:'#9B8E9E',lineColor:'#8A7F7F',secondaryColor:'#EBE4E1',tertiaryColor:'#F2EDED',fontFamily:'Inter',background:'#F2EDED',mainBkg:'#EBE4E1',nodeBorder:'#9B8E9E',clusterBkg:'#F2EDED',titleColor:'#3D3535',edgeLabelBackground:'#F2EDED'}});
+
+function switchTab(t){
+    document.querySelectorAll('.nav-tab').forEach((e,i)=>{e.classList.remove('active')});
+    document.querySelectorAll('.tab-panel').forEach(e=>e.classList.remove('active'));
+    document.getElementById('tab-'+t).classList.add('active');
+    event.target.classList.add('active');
+    if(t==='flow'){setTimeout(()=>mermaid.run(),100)}
+}
+
+function switchFlow(f){
+    document.querySelectorAll('.fb').forEach(e=>e.classList.remove('active'));
+    document.querySelectorAll('.fp').forEach(e=>e.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('flow-'+f).classList.add('active');
+}
+
+const pageMap={dash:'Dashboard',jin:'Practice › Job Input',res:'Practice › Resume',qst:'Practice › Questions',ans:'Practice › Answer',fbk:'Practice › Feedback',rup:'Review › Upload',rex:'Review › Extract',rfb:'Review › Summary',hist:'History',sett:'Settings'};
+const sideMap={dash:0,jin:1,res:1,qst:1,ans:1,fbk:1,rup:2,rex:2,rfb:2,hist:3,sett:4};
+const questionFilters={type:'all',status:'all',sort:'relevance'};
+const historyFilters={type:'all',search:''};
+const selectedHistoryIds=[];
+const coachTipSnippets={
+    result:' Result: This improved the outcome by 35% and helped us hit the release deadline.',
+    team:' I coordinated with design and backend teammates through short daily check-ins so the fix would not break dependent work.',
+    role:' I tied the solution back to the role by emphasizing maintainability, performance, and readiness for ByteDance-scale traffic.'
+};
+const questionBank=[
+    {id:'q1',number:1,type:'Behavioral',difficulty:2,difficultyLabel:'Medium',relevance:94,duration:4,durationLabel:'3-5 min',focus:'STAR + high-pressure problem solving',status:'in_progress',favorite:true,weak:false,prompt:'Tell me about a time you solved a complex technical problem under tight deadlines.',keywords:['deadline','memory','performance','team','impact'],answer:`During my final year project, our team faced a critical bug in the data visualization dashboard 48 hours before deadline.
+
+Situation: Real-time chart rendering caused memory leaks crashing the browser after 10 min.
+Task: As frontend lead, I needed to fix the root cause without affecting other features.
+Action: Used Chrome DevTools to profile memory, found event listeners not cleaned up during re-renders. Refactored using useEffect cleanup and implemented data windowing.
+Result: 70% memory reduction, dashboard ran smoothly 2+ hours. Delivered on time with highest grade.`,variants:['Tell me about a time you solved a complex technical problem under tight deadlines.','Describe a production issue you stabilized quickly while keeping teammates aligned.']},
+    {id:'q2',number:2,type:'Technical',difficulty:3,difficultyLabel:'High',relevance:91,duration:3,durationLabel:'2-3 min',focus:'Explain trade-offs, not just definitions',status:'ready',favorite:false,weak:false,prompt:'Explain how virtual DOM works in React and why it improves performance.',keywords:['react','dom','performance','diffing','trade-off'],answer:'The virtual DOM is a lightweight representation of the UI. React compares the new tree with the previous one, figures out the minimal DOM changes, and then updates the real DOM efficiently.',variants:['Explain how virtual DOM works in React and why it improves performance.','Walk through React rendering, reconciliation, and one performance trade-off of the virtual DOM.']},
+    {id:'q3',number:3,type:'Behavioral',difficulty:2,difficultyLabel:'Medium',relevance:78,duration:4,durationLabel:'3-5 min',focus:'Conflict management + stakeholder alignment',status:'ready',favorite:false,weak:true,prompt:'Describe a situation where you disagreed with a teammate on a technical decision.',keywords:['team','decision','alignment','trade-off','communication'],answer:'',variants:['Describe a situation where you disagreed with a teammate on a technical decision.','Share a time you resolved a technical disagreement without slowing delivery.']},
+    {id:'q4',number:4,type:'System Design',difficulty:4,difficultyLabel:'Very High',relevance:88,duration:7,durationLabel:'5-8 min',focus:'Scale, latency, and architecture trade-offs',status:'skipped',favorite:false,weak:true,prompt:'How would you design a real-time notification system for millions of users?',keywords:['scalability','latency','architecture','queue','reliability'],answer:'I would start with event producers, a message queue, notification workers, and user channel preferences. Then I would discuss fan-out strategy, retries, and monitoring.',variants:['How would you design a real-time notification system for millions of users?','Design a high-scale notification system and explain the main reliability trade-offs.']}
+];
+const historyRecords=[
+    {id:'h1',type:'Practice',role:'Frontend Dev',company:'ByteDance',date:'Apr 13',sortDate:20260413,score:8.2,focus:'Behavioral · Debugging story',summary:'Strong STAR structure with clear technical detail and quantifiable result.',dims:{star:9,clarity:8,role:8},snippet:'I profiled memory leaks and reduced memory consumption by 70% before launch.',trend:'Best recent example of quantified impact.'},
+    {id:'h2',type:'Review',role:'PM',company:'Tencent',date:'Apr 11',sortDate:20260411,score:6.9,focus:'Recorded interview review',summary:'Good use of data, but stakeholder management evidence was thin.',dims:{star:8,clarity:7,role:6},snippet:'I improved onboarding conversion by 25%, but the team alignment story was incomplete.',trend:'Weakness remains in stakeholder examples.'},
+    {id:'h3',type:'Practice',role:'Data Analyst',company:'Alibaba',date:'Apr 9',sortDate:20260409,score:7.5,focus:'Analytical thinking',summary:'Clear logic flow, but results were not specific enough.',dims:{star:7,clarity:8,role:7},snippet:'I built a reporting model that helped identify churn drivers across regions.',trend:'More data depth than business impact.'},
+    {id:'h4',type:'Practice',role:'Backend Dev',company:'Meituan',date:'Apr 7',sortDate:20260407,score:6.8,focus:'System design practice',summary:'Architecture ideas were solid, but prioritization and scale trade-offs needed more structure.',dims:{star:6,clarity:6,role:8},snippet:'I proposed asynchronous queues and caching, but did not justify trade-offs clearly.',trend:'System design confidence is improving but still uneven.'}
+];
+let currentQuestionId='q1';
+
+function pNav(p){
+    document.querySelectorAll('.pp').forEach(e=>e.classList.remove('active'));
+    document.getElementById('p-'+p).classList.add('active');
+    document.getElementById('brc').innerHTML='<span class="cur">'+(pageMap[p]||'Dashboard')+'</span>';
+    document.querySelectorAll('.si').forEach((e,i)=>{e.classList.toggle('active',i===sideMap[p])});
+    if(p==='qst'){renderQuestions()}
+    if(p==='ans'){renderAnswerPage()}
+    if(p==='hist'){renderHistory()}
+}
+
+function showM(t){document.getElementById('m-'+t).classList.add('show')}
+function showUndo(){showToast('↩️ Action undone successfully')}
+function showToast(message){
+    const u=document.getElementById('undo-toast');
+    u.querySelector('span').textContent=message;
+    u.classList.add('show');
+    setTimeout(()=>u.classList.remove('show'),3000)
+}
+
+function getQuestionById(id){
+    return questionBank.find(q=>q.id===id);
+}
+
+function difficultyRank(value){
+    return value;
+}
+
+function statusLabel(status){
+    return {ready:'Not Started',in_progress:'In Progress',completed:'Completed',skipped:'Skipped'}[status]||'Not Started';
+}
+
+function renderQuestions(){
+    const summary=document.getElementById('question-summary');
+    const list=document.getElementById('question-list');
+    if(!summary||!list){return}
+
+    const completed=questionBank.filter(q=>q.status==='completed').length;
+    const inProgress=questionBank.filter(q=>q.status==='in_progress').length;
+    const weak=questionBank.filter(q=>q.weak).length;
+    summary.innerHTML=`
+        <div class="stc"><div class="sn2" style="color:var(--p1)">${questionBank.length}</div><div class="sl">Question Bank</div></div>
+        <div class="stc"><div class="sn2" style="color:var(--ok)">${completed}</div><div class="sl">Completed</div></div>
+        <div class="stc"><div class="sn2" style="color:var(--warn)">${inProgress}</div><div class="sl">In Progress</div></div>
+        <div class="stc"><div class="sn2" style="color:var(--info)">${weak}</div><div class="sl">Weak Focus</div></div>
+    `;
+
+    const filtered=questionBank
+        .filter(q=>questionFilters.type==='all'||q.type===questionFilters.type)
+        .filter(q=>questionFilters.status==='all'||q.status===questionFilters.status)
+        .sort((a,b)=>{
+            if(questionFilters.sort==='difficulty'){return b.difficulty-a.difficulty}
+            if(questionFilters.sort==='duration'){return a.duration-b.duration}
+            return b.relevance-a.relevance
+        });
+
+    if(!filtered.length){
+        list.innerHTML='<div class="empty-state">No questions match the current filters. Try broadening the status or type selection.</div>';
+        return;
+    }
+
+    list.innerHTML=filtered.map(q=>`
+        <div class="card question-card ${q.id===currentQuestionId?'selected':''}">
+            <div class="question-top">
+                <div>
+                    <div style="font-size:.72rem;font-weight:700;color:var(--p1)">Q${q.number} · ${q.type}</div>
+                    <div class="question-title">${q.prompt}</div>
+                    <div class="meta-row">
+                        <span class="meta-pill status-pill ${q.status}">${statusLabel(q.status)}</span>
+                        <span class="meta-pill">${q.difficultyLabel}</span>
+                        <span class="meta-pill">JD Match ${q.relevance}%</span>
+                        <span class="meta-pill">${q.durationLabel}</span>
+                        ${q.favorite?'<span class="meta-pill favorite">★ Favorite</span>':''}
+                        ${q.weak?'<span class="meta-pill">Weak Area</span>':''}
+                    </div>
+                </div>
+                <span class="tag ${q.relevance>=90?'tg':q.relevance>=80?'tb':'ty'}">${q.relevance>=90?'High Relevance':q.relevance>=80?'JD Matched':'Needs Practice'}</span>
+            </div>
+            <div class="mini-note">Coach focus: ${q.focus}</div>
+            <div class="question-actions">
+                <button class="btn bsm bp" onclick="openQuestion('${q.id}')">${q.status==='completed'?'Review Answer':'Start Answer'}</button>
+                <button class="btn bsm bs" onclick="toggleFavorite('${q.id}', event)">${q.favorite?'★ Unfavorite':'☆ Favorite'}</button>
+                <button class="btn bsm bs" onclick="toggleWeak('${q.id}', event)">${q.weak?'✓ Weak Area':'Mark Weak'}</button>
+                <button class="btn bsm bw" onclick="skipQuestion('${q.id}', event)">${q.status==='skipped'?'Restore':'Skip'}</button>
+                <button class="btn bsm bs" onclick="regenerateQuestion('${q.id}', event)">🔄 Regenerate This</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function setQuestionFilter(key,value){
+    questionFilters[key]=value;
+    renderQuestions();
+}
+
+function openQuestion(id){
+    const question=getQuestionById(id);
+    if(!question){return}
+    currentQuestionId=id;
+    if(question.status==='ready'||question.status==='skipped'){question.status='in_progress'}
+    renderQuestions();
+    pNav('ans');
+}
+
+function toggleFavorite(id,evt){
+    evt.stopPropagation();
+    const question=getQuestionById(id);
+    question.favorite=!question.favorite;
+    renderQuestions();
+}
+
+function toggleWeak(id,evt){
+    evt.stopPropagation();
+    const question=getQuestionById(id);
+    question.weak=!question.weak;
+    renderQuestions();
+    showToast(question.weak?'Marked as a weak-area question for repeat practice.':'Removed from weak-area list.');
+}
+
+function skipQuestion(id,evt){
+    evt.stopPropagation();
+    const question=getQuestionById(id);
+    question.status=question.status==='skipped'?'ready':'skipped';
+    renderQuestions();
+    showToast(question.status==='skipped'?'Question skipped for now.':'Question restored to the queue.');
+}
+
+function regenerateQuestion(id,evt){
+    evt.stopPropagation();
+    const question=getQuestionById(id);
+    const currentIndex=question.variants.indexOf(question.prompt);
+    const nextIndex=(currentIndex+1)%question.variants.length;
+    question.prompt=question.variants[nextIndex];
+    question.status='ready';
+    renderQuestions();
+    if(currentQuestionId===id){renderAnswerPage()}
+    showToast('Generated an alternate version of this question.');
+}
+
+function renderAnswerPage(){
+    const question=getQuestionById(currentQuestionId);
+    const header=document.getElementById('answer-question-header');
+    const input=document.getElementById('answer-input');
+    if(!question||!header||!input){return}
+
+    header.innerHTML=`
+        <div style="margin-bottom:1rem">
+            <span style="font-size:.75rem;font-weight:700;color:var(--p1)">Q${question.number} · ${question.type}</span>
+            <h2 style="font-size:1.15rem;font-weight:700;margin-top:.35rem;line-height:1.5">${question.prompt}</h2>
+            <div class="meta-row">
+                <span class="meta-pill">${question.difficultyLabel}</span>
+                <span class="meta-pill">JD Match ${question.relevance}%</span>
+                <span class="meta-pill">${statusLabel(question.status)}</span>
+            </div>
+        </div>
+    `;
+    document.getElementById('answer-focus-title').textContent=question.focus;
+    document.getElementById('answer-focus-copy').textContent=`We're tracking ${question.type.toLowerCase()} quality, quantified outcomes, and whether your answer matches the role context.`;
+    document.getElementById('answer-focus-tag').textContent=question.favorite?'Favorite Question':'Active Question';
+    input.value=question.answer||'';
+    updateRealtimeFeedback();
+}
+
+function handleAnswerInput(){
+    const question=getQuestionById(currentQuestionId);
+    if(!question){return}
+    question.answer=document.getElementById('answer-input').value;
+    if(question.status!=='completed'){question.status='in_progress'}
+    updateRealtimeFeedback();
+}
+
+function buildFeedbackModel(text,question){
+    const normalized=text.trim();
+    const words=normalized?normalized.split(/\s+/).length:0;
+    const estimatedMinutes=(words/130).toFixed(1);
+    const starChecks={
+        situation:/\b(situation|context|deadline|challenge|when)\b/i.test(text),
+        task:/\b(task|goal|needed to|had to|my role)\b/i.test(text),
+        action:/\b(action|used|implemented|led|analyz|debug|refactor|collaborat|designed)\b/i.test(text),
+        result:/\b(result|improv|reduc|increas|deliver|launch|saved)\b/i.test(text)||/\d+[%x]|\d+\+?\s?(hours|mins|days|users|percent|%)\b/i.test(text)
+    };
+    const structureScore=Math.round((Object.values(starChecks).filter(Boolean).length/4)*100);
+    const keywordHits=question.keywords.filter(keyword=>text.toLowerCase().includes(keyword.toLowerCase())).length;
+    const roleMatch=Math.min(100,Math.round((keywordHits/question.keywords.length)*100));
+    const hasNumber=/\d/.test(text);
+    const hasTeam=/\b(team|stakeholder|partner|design|backend|product|we|aligned|communicat)\b/i.test(text);
+    const longAnswer=words>230;
+    const shortAnswer=words>0&&words<90;
+    const suggestions=[];
+
+    if(!starChecks.result){suggestions.push({icon:'📊',text:'Add a Result with a metric, business impact, or final outcome.',tip:'result'})}
+    if(!hasTeam&&question.type!=='Technical'){suggestions.push({icon:'🤝',text:'Mention how you aligned teammates or stakeholders so the story shows collaboration.',tip:'team'})}
+    if(roleMatch<60){suggestions.push({icon:'🎯',text:'Tie the answer back to the target role so the example feels job-relevant.',tip:'role'})}
+    if(shortAnswer){suggestions.push({icon:'🧱',text:'Develop the middle of the story. Add one more Action detail to make the answer convincing.'})}
+    if(longAnswer){suggestions.push({icon:'✂️',text:'Trim supporting detail so the answer stays within a crisp interview-length response.'})}
+    if(question.type==='Technical'&&!/\b(trade-?off|latency|complexity|scale|scalab|memory|performance)\b/i.test(text)){suggestions.push({icon:'⚙️',text:'Name one trade-off or performance consideration to strengthen technical depth.'})}
+    if(!hasNumber&&words>0){suggestions.push({icon:'🔢',text:'Quantify the result or scope so the impact is easier to trust.',tip:'result'})}
+
+    return {words,estimatedMinutes,structureScore,roleMatch,starChecks,suggestions};
+}
+
+function updateRealtimeFeedback(){
+    const question=getQuestionById(currentQuestionId);
+    const input=document.getElementById('answer-input');
+    const metrics=document.getElementById('answer-metrics');
+    const checklist=document.getElementById('star-checklist');
+    const guidance=document.getElementById('live-guidance');
+    const chips=document.getElementById('answer-coach-chips');
+    if(!question||!input||!metrics||!checklist||!guidance||!chips){return}
+
+    const feedback=buildFeedbackModel(input.value,question);
+    const overall=Math.round((feedback.structureScore*0.45)+(feedback.roleMatch*0.35)+(Math.min(feedback.words,180)/180*20));
+
+    metrics.innerHTML=`
+        <div class="metric-card"><div class="value" style="color:var(--p1)">${feedback.words}</div><div class="label">Words</div></div>
+        <div class="metric-card"><div class="value" style="color:var(--info)">${feedback.estimatedMinutes}m</div><div class="label">Estimated Time</div></div>
+        <div class="metric-card"><div class="value" style="color:var(--ok)">${feedback.structureScore}%</div><div class="label">STAR Coverage</div></div>
+        <div class="metric-card"><div class="value" style="color:${overall>=75?'var(--ok)':overall>=55?'var(--warn)':'var(--err)'}">${overall}</div><div class="label">Coach Readiness</div></div>
+    `;
+
+    const checklistRows=[
+        ['Situation',feedback.starChecks.situation],
+        ['Task',feedback.starChecks.task],
+        ['Action',feedback.starChecks.action],
+        ['Result',feedback.starChecks.result]
+    ];
+    checklist.innerHTML=checklistRows.map(([label,ok])=>`
+        <div class="check-item">
+            <span class="check-label">${label}</span>
+            <span class="check-state ${ok?'ok':'warn'}">${ok?'Covered':'Missing / weak'}</span>
+        </div>
+    `).join('');
+
+    guidance.innerHTML=(feedback.suggestions.length?feedback.suggestions:[{icon:'✅',text:'Your answer already covers the main structure well. Tighten wording and submit when ready.'}]).map(item=>`
+        <div class="guide-item"><span>${item.icon}</span><span>${item.text}</span></div>
+    `).join('');
+
+    const actionableTips=[...new Set(feedback.suggestions.filter(item=>item.tip).map(item=>item.tip))];
+    chips.innerHTML=actionableTips.length?actionableTips.map(tip=>`
+        <button class="chip-btn" onclick="applyCoachTip('${tip}')">${tip==='result'?'Add Result':tip==='team'?'Add Team Context':'Add Role Relevance'}</button>
+    `).join(''):'<span class="mini-note">Realtime coach is happy with the current structure. You can still use the quick inserts on the right if needed.</span>';
+}
+
+function applyCoachTip(tip){
+    const input=document.getElementById('answer-input');
+    const snippet=coachTipSnippets[tip];
+    if(!input||!snippet){return}
+    if(!input.value.includes(snippet.trim())){
+        input.value=`${input.value.trim()}${input.value.trim()?'\n':''}${snippet.trim()}`;
+        handleAnswerInput();
+        showToast('Inserted a coaching suggestion into your draft.');
+    }
+}
+
+function saveDraftAnswer(){
+    const question=getQuestionById(currentQuestionId);
+    if(!question){return}
+    question.answer=document.getElementById('answer-input').value;
+    question.status='in_progress';
+    renderQuestions();
+    showToast('Draft saved. You can continue editing anytime.');
+}
+
+function submitAnswer(){
+    const question=getQuestionById(currentQuestionId);
+    if(!question){return}
+    question.answer=document.getElementById('answer-input').value;
+    const feedback=buildFeedbackModel(question.answer,question);
+    question.status='completed';
+    question.weak=feedback.structureScore<75||feedback.roleMatch<60;
+    renderQuestions();
+    pNav('fbk');
+    showToast('Answer submitted. Question status updated to completed.');
+}
+
+function goToNextQuestion(){
+    const currentIndex=questionBank.findIndex(q=>q.id===currentQuestionId);
+    const next=questionBank.slice(currentIndex+1).find(q=>q.status!=='completed')||questionBank.find(q=>q.status!=='completed');
+    if(next){
+        openQuestion(next.id);
+    }else{
+        pNav('qst');
+        showToast('You have completed every question in the current practice set.');
+    }
+}
+
+function renderHistory(){
+    const summary=document.getElementById('history-summary');
+    const list=document.getElementById('history-list');
+    const panel=document.getElementById('history-compare-panel');
+    if(!summary||!list||!panel){return}
+
+    const avg=(historyRecords.reduce((acc,item)=>acc+item.score,0)/historyRecords.length).toFixed(1);
+    const best=Math.max(...historyRecords.map(item=>item.score)).toFixed(1);
+    const practiceCount=historyRecords.filter(item=>item.type==='Practice').length;
+    const weakTrend=historyRecords.filter(item=>item.dims.star<8).length;
+    summary.innerHTML=`
+        <div class="stc"><div class="sn2" style="color:var(--p1)">${historyRecords.length}</div><div class="sl">Sessions Logged</div></div>
+        <div class="stc"><div class="sn2" style="color:var(--ok)">${avg}</div><div class="sl">Average Score</div></div>
+        <div class="stc"><div class="sn2" style="color:var(--info)">${best}</div><div class="sl">Best Session</div></div>
+        <div class="stc"><div class="sn2" style="color:var(--warn)">${weakTrend}</div><div class="sl">Needs STAR Work</div></div>
+    `;
+
+    document.getElementById('history-type-all').className=`btn bsm ${historyFilters.type==='all'?'bp':'bs'}`;
+    document.getElementById('history-type-practice').className=`btn bsm ${historyFilters.type==='Practice'?'bp':'bs'}`;
+    document.getElementById('history-type-review').className=`btn bsm ${historyFilters.type==='Review'?'bp':'bs'}`;
+    document.getElementById('history-compare-state').textContent=selectedHistoryIds.length===2?'Comparison ready. Review the growth panel on the right.':`Selected ${selectedHistoryIds.length}/2 sessions for comparison.`;
+
+    const filtered=historyRecords
+        .filter(item=>historyFilters.type==='all'||item.type===historyFilters.type)
+        .filter(item=>{
+            const search=historyFilters.search.trim().toLowerCase();
+            if(!search){return true}
+            return `${item.role} ${item.company} ${item.focus} ${item.summary}`.toLowerCase().includes(search)
+        })
+        .sort((a,b)=>b.sortDate-a.sortDate);
+
+    list.innerHTML=filtered.length?filtered.map(item=>`
+        <div class="history-card ${selectedHistoryIds.includes(item.id)?'selected':''}">
+            <div class="record-top">
+                <div>
+                    <div style="font-size:.9rem;font-weight:700">${item.role} — ${item.company}</div>
+                    <div class="record-detail">${item.type} · ${item.date} · ${item.focus}</div>
+                </div>
+                <div style="text-align:right">
+                    <div class="record-score" style="color:${item.score>=8?'var(--ok)':item.score>=7?'var(--warn)':'var(--err)'}">${item.score}</div>
+                    <div class="record-detail">Overall</div>
+                </div>
+            </div>
+            <div class="record-meta">
+                <span class="meta-pill">${item.summary}</span>
+                <span class="meta-pill">${item.trend}</span>
+            </div>
+            <div class="record-stats">
+                ${Object.entries(item.dims).map(([key,value])=>`
+                    <div class="record-stat">
+                        <div style="flex:1">
+                            <div style="font-size:.78rem;color:var(--t2)">${key==='star'?'STAR Coverage':key==='clarity'?'Clarity':key==='role'?'Role Relevance':'Dimension'}</div>
+                            <div class="mini-bar"><span style="width:${value*10}%"></span></div>
+                        </div>
+                        <div style="font-size:.78rem;font-weight:700;color:var(--t1)">${value}/10</div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="history-actions">
+                <button class="btn bsm ${selectedHistoryIds.includes(item.id)?'bp':'bs'}" onclick="toggleHistorySelection('${item.id}')">${selectedHistoryIds.includes(item.id)?'✓ Selected':'Select for Compare'}</button>
+                <button class="btn bsm bs" onclick="openHistoryWeakPractice('${item.id}')">Practice Similar Gap</button>
+            </div>
+        </div>
+    `).join(''):'<div class="empty-state">No sessions match this search yet. Try another role, company, or session type.</div>';
+
+    renderHistoryCompare(panel);
+}
+
+function setHistoryFilter(key,value){
+    historyFilters[key]=value;
+    renderHistory();
+}
+
+function toggleHistorySelection(id){
+    const existingIndex=selectedHistoryIds.indexOf(id);
+    if(existingIndex>=0){
+        selectedHistoryIds.splice(existingIndex,1);
+    }else if(selectedHistoryIds.length<2){
+        selectedHistoryIds.push(id);
+    }else{
+        selectedHistoryIds.shift();
+        selectedHistoryIds.push(id);
+    }
+    renderHistory();
+}
+
+function clearHistorySelection(){
+    selectedHistoryIds.length=0;
+    renderHistory();
+}
+
+function renderHistoryCompare(panel){
+    if(selectedHistoryIds.length<2){
+        panel.innerHTML=`
+            <div style="font-size:1rem;font-weight:700">🧠 Comparison Studio</div>
+            <div class="compare-empty">Pick any two sessions from the left to compare score movement, STAR quality, and where your interview story is improving.</div>
+            <div class="snippet-list">
+                <div class="snippet-item"><span>📈</span><span>Use compare mode to show score deltas and recurring weak patterns.</span></div>
+                <div class="snippet-item"><span>🎯</span><span>Notice whether role relevance improves across different companies and question types.</span></div>
+                <div class="snippet-item"><span>🔁</span><span>Then jump back into Practice with a focused weak-area drill.</span></div>
+            </div>
+        `;
+        return;
+    }
+
+    const selected=selectedHistoryIds.map(id=>historyRecords.find(item=>item.id===id)).sort((a,b)=>a.sortDate-b.sortDate);
+    const [earlier,later]=selected;
+    const scoreDelta=(later.score-earlier.score).toFixed(1);
+    const starDelta=(later.dims.star-earlier.dims.star).toFixed(1);
+    const clarityDelta=(later.dims.clarity-earlier.dims.clarity).toFixed(1);
+    const roleDelta=(later.dims.role-earlier.dims.role).toFixed(1);
+    const recurringGap=later.dims.role<8?'Role relevance still needs stronger explicit tie-back.':'Biggest remaining gap is keeping explanations concise.';
+
+    panel.innerHTML=`
+        <div style="font-size:1rem;font-weight:700">🧠 Comparison Studio</div>
+        <div class="compare-tags">
+            <span class="meta-pill">${earlier.role} · ${earlier.date}</span>
+            <span class="meta-pill">${later.role} · ${later.date}</span>
+        </div>
+        <div class="compare-grid">
+            <div class="compare-card"><div class="delta" style="color:${scoreDelta>=0?'var(--ok)':'var(--err)'}">${scoreDelta>=0?'+':''}${scoreDelta}</div><div class="small">Overall score change</div></div>
+            <div class="compare-card"><div class="delta" style="color:${starDelta>=0?'var(--ok)':'var(--err)'}">${starDelta>=0?'+':''}${starDelta}</div><div class="small">STAR structure change</div></div>
+            <div class="compare-card"><div class="delta" style="color:${clarityDelta>=0?'var(--ok)':'var(--err)'}">${clarityDelta>=0?'+':''}${clarityDelta}</div><div class="small">Clarity change</div></div>
+            <div class="compare-card"><div class="delta" style="color:${roleDelta>=0?'var(--ok)':'var(--err)'}">${roleDelta>=0?'+':''}${roleDelta}</div><div class="small">Role relevance change</div></div>
+        </div>
+        <div class="guide-list">
+            <div class="guide-item"><span>✅</span><span><strong style="color:var(--t1)">Progress:</strong> ${later.trend}</span></div>
+            <div class="guide-item"><span>⚠️</span><span><strong style="color:var(--t1)">Recurring gap:</strong> ${recurringGap}</span></div>
+            <div class="guide-item"><span>🚀</span><span><strong style="color:var(--t1)">Next drill:</strong> Practice one answer that explicitly states Result and why it matters to the target role.</span></div>
+        </div>
+        <div class="compare-snippets">
+            <div class="compare-card">
+                <div style="font-size:.82rem;font-weight:700;color:var(--t3)">Earlier answer highlight</div>
+                <div style="font-size:.84rem;color:var(--t2);line-height:1.7;margin-top:.5rem">${earlier.snippet}</div>
+            </div>
+            <div class="compare-card">
+                <div style="font-size:.82rem;font-weight:700;color:var(--t3)">Later answer highlight</div>
+                <div style="font-size:.84rem;color:var(--t2);line-height:1.7;margin-top:.5rem">${later.snippet}</div>
+            </div>
+        </div>
+        <div class="history-actions" style="margin-top:1rem">
+            <button class="btn bsm bp" onclick="pNav('qst')">📝 Practice Weak Area</button>
+            <button class="btn bsm bs" onclick="clearHistorySelection()">Reset Compare</button>
+        </div>
+    `;
+}
+
+function openHistoryWeakPractice(id){
+    const record=historyRecords.find(item=>item.id===id);
+    if(!record){return}
+    const weakQuestion=questionBank.find(q=>q.weak)||questionBank[0];
+    currentQuestionId=weakQuestion.id;
+    showToast(`Loaded a practice question to address the gap from ${record.role} — ${record.company}.`);
+    openQuestion(weakQuestion.id);
+}
+
+renderQuestions();
+renderAnswerPage();
+renderHistory();
+</script>
+</body>
+</html>
